@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..500&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+</helmet>
+<div style="--bg: {{t.bg}}; --panel: {{t.panel}}; --ink: {{t.ink}}; --muted: {{t.muted}}; --rule: {{t.rule}}; --accent: {{t.accent}}; --accent2: {{t.accent2}}; --chip: {{t.chip}}; --serif: 'Newsreader', Georgia, 'Times New Roman', serif; --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace; background: var(--bg); color: var(--ink); font-family: var(--serif); min-height: 1440px; display: flex; flex-direction: column">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 26px 112px; border-bottom: 1px solid var(--rule)">
+    <a href="#" style="font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink)">Destiny Erhabor</a>
+    <nav style="display: flex; align-items: center; gap: 26px">
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">Experience</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">Open source</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--ink)">Writing</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">Speaking</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">About</a>
+      <a href="#" style="display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 12px; color: var(--ink); padding: 8px 14px; border: 1px solid var(--rule); border-radius: 6px">
+        Resume
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 4v12M6.5 11l5.5 5.5L17.5 11M5 20h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+      <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5" stroke="var(--ink)" stroke-width="1.5"></circle>
+          <path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="var(--ink)"></path>
+        </svg>
+      </div>
+    </nav>
+  </header>
+
+  <section style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 72px 112px 48px">
+    <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); padding-top: 20px">Writing</div>
+    <div>
+      <h1 style="font-size: 56px; line-height: 1.08; font-weight: 400; letter-spacing: -0.02em; margin: 0; text-wrap: pretty">Mostly things I had to work out first.</h1>
+      <p style="font-size: 19px; line-height: 1.6; color: var(--muted); max-width: 64ch; margin: 26px 0 0">Published tutorials on freeCodeCamp, read by more than a hundred thousand people, plus long-form work for LogRocket, Aviator and Microsoft since 2022.</p>
+    </div>
+  </section>
+
+  <section style="padding: 0 112px 56px">
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px">
+      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted)">Bylines</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px">
+        <a href="#" style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border: 1px solid var(--rule); border-radius: 5px; color: var(--ink)">freeCodeCamp</a>
+        <a href="#" style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border: 1px solid var(--rule); border-radius: 5px; color: var(--ink)">LogRocket</a>
+        <a href="#" style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border: 1px solid var(--rule); border-radius: 5px; color: var(--ink)">Aviator</a>
+        <a href="#" style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border: 1px solid var(--rule); border-radius: 5px; color: var(--ink)">Microsoft Tech Community</a>
+        <a href="#" style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border: 1px solid var(--rule); border-radius: 5px; color: var(--ink)">AWS Community Builders</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section style="padding: 0 112px 48px">
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 32px 0; border-top: 1px solid var(--rule)">
+      <div style="display: flex; flex-direction: column; gap: 7px">
+        <div style="font-family: var(--mono); font-size: 12px; color: var(--ink)">freeCodeCamp</div>
+        <span style="font-family: var(--mono); font-size: 11px; padding: 4px 9px; border: 1px solid var(--accent2); border-radius: 4px; color: var(--accent2); align-self: flex-start; margin-top: 4px">Latest</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start">
+        <a href="#" style="font-size: 36px; line-height: 1.18; letter-spacing: -0.015em; color: var(--ink); max-width: 26ch; text-wrap: pretty">How to implement zero-trust workload identity in Kubernetes with SPIFFE, SPIRE and Cilium</a>
+        <div style="font-size: 17px; line-height: 1.6; color: var(--muted); max-width: 68ch">Issuing cryptographic identities to workloads with SPIRE, then letting Cilium enforce mutual TLS between services with eBPF instead of a sidecar per pod.</div>
+        <div style="display: flex; gap: 8px; margin-top: 4px">
+          <span style="font-family: var(--mono); font-size: 11px; padding: 4px 9px; border-radius: 4px; background: var(--chip); color: var(--muted)">Kubernetes</span>
+          <span style="font-family: var(--mono); font-size: 11px; padding: 4px 9px; border-radius: 4px; background: var(--chip); color: var(--muted)">Zero trust</span>
+          <span style="font-family: var(--mono); font-size: 11px; padding: 4px 9px; border-radius: 4px; background: var(--chip); color: var(--muted)">eBPF</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 24px 0; border-top: 1px solid var(--rule)">
+      <div style="font-family: var(--mono); font-size: 12px; color: var(--muted)">freeCodeCamp</div>
+      <div style="display: flex; flex-direction: column; gap: 7px; align-items: flex-start">
+        <a href="#" style="font-size: 24px; line-height: 1.28; color: var(--ink); max-width: 46ch">Kubernetes authentication with x509, OIDC and cloud identity</a>
+        <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Who the API server thinks you are, and the three quite different ways it decides.</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 24px 0; border-top: 1px solid var(--rule)">
+      <div style="font-family: var(--mono); font-size: 12px; color: var(--muted)">freeCodeCamp</div>
+      <div style="display: flex; flex-direction: column; gap: 7px; align-items: flex-start">
+        <a href="#" style="font-size: 24px; line-height: 1.28; color: var(--ink); max-width: 46ch">Kubernetes networking</a>
+        <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">How a packet actually gets from one pod to another, without hand-waving at the CNI.</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 24px 0; border-top: 1px solid var(--rule)">
+      <div style="font-family: var(--mono); font-size: 12px; color: var(--muted)">LogRocket</div>
+      <div style="display: flex; flex-direction: column; gap: 7px; align-items: flex-start">
+        <a href="#" style="font-size: 24px; line-height: 1.28; color: var(--ink); max-width: 46ch">Server-side authentication in Node.js</a>
+        <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Sessions, tokens and the failure modes each one hands you.</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 24px 0; border-top: 1px solid var(--rule)">
+      <div style="font-family: var(--mono); font-size: 12px; color: var(--muted)">LogRocket</div>
+      <div style="display: flex; flex-direction: column; gap: 7px; align-items: flex-start">
+        <a href="#" style="font-size: 24px; line-height: 1.28; color: var(--ink); max-width: 46ch">SOLID principles in TypeScript</a>
+        <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">The five ideas, written as TypeScript you would actually ship rather than shapes and animals.</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 24px 0; border-top: 1px solid var(--rule)">
+      <div style="font-family: var(--mono); font-size: 12px; color: var(--muted)">Microsoft Tech Community</div>
+      <div style="display: flex; flex-direction: column; gap: 7px; align-items: flex-start">
+        <a href="#" style="font-size: 24px; line-height: 1.28; color: var(--ink); max-width: 46ch">Deploy and monitor web apps on Azure App Service</a>
+        <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Getting an application onto App Service, and the monitoring that tells you how it behaves once it is there.</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 24px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule)">
+      <div style="font-family: var(--mono); font-size: 12px; color: var(--muted)">Microsoft Tech Community</div>
+      <div style="display: flex; flex-direction: column; gap: 7px; align-items: flex-start">
+        <a href="#" style="font-size: 24px; line-height: 1.28; color: var(--ink); max-width: 46ch">An introductory guide to Databricks</a>
+        <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">What Databricks is for, and where a small team starts with it when there is no data platform already in place.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 30px 112px; border-top: 1px solid var(--rule)">
+    <span style="font-family: var(--mono); font-size: 12px; color: var(--muted)">Lagos, Nigeria</span>
+    <div style="display: flex; align-items: center; gap: 22px">
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">GitHub</a>
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">LinkedIn</a>
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">X</a>
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">destinyerhabor6@gmail.com</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"dark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1440}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = this.props.dark ?? false;
+    var light = {
+      bg: 'oklch(0.985 0.006 85)',
+      panel: 'oklch(0.963 0.008 85)',
+      ink: 'oklch(0.24 0.015 258)',
+      muted: 'oklch(0.52 0.012 258)',
+      rule: 'oklch(0.88 0.008 85)',
+      accent: 'oklch(0.52 0.15 252)',
+      accent2: 'oklch(0.54 0.13 68)',
+      chip: 'oklch(0.945 0.011 85)'
+    };
+    var night = {
+      bg: 'oklch(0.17 0.012 258)',
+      panel: 'oklch(0.215 0.014 258)',
+      ink: 'oklch(0.93 0.008 90)',
+      muted: 'oklch(0.68 0.012 258)',
+      rule: 'oklch(0.30 0.014 258)',
+      accent: 'oklch(0.74 0.13 248)',
+      accent2: 'oklch(0.76 0.12 72)',
+      chip: 'oklch(0.25 0.02 258)'
+    };
+    return { t: dark ? night : light };
+  }
+}
+</script>
+</body>
+</html>

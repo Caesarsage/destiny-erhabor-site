@@ -1,0 +1,102 @@
+/* Design tokens. Ported verbatim from the design canvas theme sheet.
+   Three theme states: explicit light, explicit dark, and system default.
+   Light is defined on bare :root so nothing depends on a media query. */
+
+:root {
+  --bg: oklch(0.985 0.006 85);
+  --panel: oklch(0.963 0.008 85);
+  --ink: oklch(0.24 0.015 258);
+  --muted: oklch(0.52 0.012 258);
+  --rule: oklch(0.88 0.008 85);
+  --accent: oklch(0.52 0.15 252);
+  --accent2: oklch(0.54 0.13 68);
+  --chip: oklch(0.945 0.011 85);
+
+  --serif: 'Newsreader Variable', Newsreader, Georgia, 'Times New Roman', serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+
+  /* Page rhythm. The desktop artboards are 1440 wide with 112px gutters
+     and a 264px metadata rail beside the content column. */
+  --gutter: 112px;
+  --rail: 264px;
+  --rail-gap: 72px;
+  --measure: 70ch;
+}
+
+/* System default resolves to dark, unless the reader explicitly chose light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: oklch(0.17 0.012 258);
+    --panel: oklch(0.215 0.014 258);
+    --ink: oklch(0.93 0.008 90);
+    --muted: oklch(0.68 0.012 258);
+    --rule: oklch(0.30 0.014 258);
+    --accent: oklch(0.74 0.13 248);
+    --accent2: oklch(0.76 0.12 72);
+    --chip: oklch(0.25 0.02 258);
+  }
+}
+
+/* Explicit choice wins in both directions. */
+:root[data-theme='dark'] {
+  --bg: oklch(0.17 0.012 258);
+  --panel: oklch(0.215 0.014 258);
+  --ink: oklch(0.93 0.008 90);
+  --muted: oklch(0.68 0.012 258);
+  --rule: oklch(0.30 0.014 258);
+  --accent: oklch(0.74 0.13 248);
+  --accent2: oklch(0.76 0.12 72);
+  --chip: oklch(0.25 0.02 258);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color 140ms ease; }
+a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+img { max-width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* Structural labels, metadata, dates, chips — everything that is not prose. */
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Between the 1440px artboard and the 390px one the gutter closes first,
+   then the rail folds above the content it annotates. */
+@media (max-width: 1200px) {
+  :root { --gutter: 56px; }
+}
+
+@media (max-width: 900px) {
+  :root { --gutter: 24px; --rail-gap: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  /* Belt and braces: the reveal's resting state must never be what a reader
+     is left looking at. The script also declines to arm itself here. */
+  .reveal { opacity: 1 !important; transform: none !important; }
+}

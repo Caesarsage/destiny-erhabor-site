@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Destiny Erhabor — CV</title>
+
+<!--
+  The CV source. `npm run cv` renders this to public/destiny-erhabor-cv.pdf,
+  which is what every Resume control on the site points at.
+
+  It must fit two A4 pages. The build script fails if it does not, so trim
+  here rather than raising the limit.
+
+  Typography and palette follow src/styles/tokens.css so that clicking
+  Resume does not feel like leaving the site. Light only — it is print.
+
+  The titles here deliberately read "Senior". The site says "Software and
+  Platform Engineer" for Oris; that divergence is intentional and was asked
+  for. See HANDOFF.md.
+-->
+
+<style>
+@font-face {
+  font-family: 'Newsreader';
+  src: url('fonts/newsreader-latin-wght-normal.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Newsreader';
+  src: url('fonts/newsreader-latin-wght-italic.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: block;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --ink: oklch(0.24 0.015 258);
+  --muted: oklch(0.46 0.012 258);
+  --faint: oklch(0.58 0.012 258);
+  --rule: oklch(0.86 0.008 85);
+  --accent: oklch(0.47 0.15 252);
+
+  --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 9.1pt;
+  line-height: 1.38;
+  -webkit-font-smoothing: antialiased;
+}
+
+@page { size: A4; margin: 12mm 13mm; }
+
+.sheet { max-width: 184mm; margin: 0 auto; }
+
+/* ---------------------------------------------------------- masthead */
+
+.masthead {
+  border-bottom: 1.5px solid var(--ink);
+  padding-bottom: 7pt;
+}
+
+.name {
+  margin: 0;
+  font-size: 25pt;
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.role {
+  margin: 3pt 0 0;
+  font-family: var(--mono);
+  font-size: 8pt;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 6pt;
+  margin-top: 6pt;
+  font-family: var(--mono);
+  font-size: 7.6pt;
+  color: var(--muted);
+}
+.contact span::after { content: '·'; margin-left: 6pt; color: var(--rule); }
+.contact span:last-child::after { content: none; }
+.contact a { color: inherit; text-decoration: none; }
+
+.lede {
+  margin: 8pt 0 0;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 62em;
+}
+.lede b { color: var(--ink); font-weight: 600; }
+
+/* ------------------------------------------------------------- rail */
+
+/* The same asymmetric grid the site uses: a label rail beside the body. */
+.sec {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  gap: 0 8mm;
+  border-top: 1px solid var(--rule);
+  margin-top: 6.5pt;
+  padding-top: 6pt;
+}
+
+.sec-label {
+  font-family: var(--mono);
+  font-size: 7.2pt;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  line-height: 1.35;
+}
+.sec-label em {
+  display: block;
+  margin-top: 2pt;
+  font-style: normal;
+  font-size: 6.8pt;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--rule);
+}
+
+.sec-body > * + * { margin-top: 5pt; }
+
+/* ---------------------------------------------------------- entries */
+
+/* A tall entry may split across the page boundary — forbidding it strands a
+   whole role and costs a page. What must not split is a heading from its
+   first bullet, or a bullet from itself. */
+.entry { break-inside: auto; }
+.entry-head { break-after: avoid; }
+li { break-inside: avoid; }
+
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8pt;
+}
+
+.entry h3 {
+  margin: 0;
+  font-size: 10pt;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.entry h3 .org { font-weight: 400; color: var(--muted); }
+
+.dates {
+  font-family: var(--mono);
+  font-size: 7.4pt;
+  color: var(--faint);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 6.8pt;
+  font-weight: 500;
+  color: var(--accent);
+  border: 0.5pt solid var(--accent);
+  border-radius: 2pt;
+  padding: 0.5pt 3pt;
+  margin-left: 3pt;
+  white-space: nowrap;
+}
+
+ul { margin: 3pt 0 0; padding: 0; list-style: none; }
+
+li {
+  position: relative;
+  margin-top: 2pt;
+  padding-left: 9pt;
+  color: var(--muted);
+}
+li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 4pt;
+  height: 0.5pt;
+  background: var(--rule);
+}
+li b { color: var(--ink); font-weight: 600; }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  color: var(--ink);
+}
+
+/* ----------------------------------------------------------- skills */
+
+.skills { display: grid; gap: 2pt; margin: 0; }
+.skill {
+  display: grid;
+  grid-template-columns: 19mm 1fr;
+  gap: 0 4mm;
+  align-items: baseline;
+}
+.skill dt {
+  font-family: var(--mono);
+  font-size: 7.2pt;
+  color: var(--ink);
+}
+.skill dd { margin: 0; color: var(--muted); }
+
+.compact { margin: 0; color: var(--muted); }
+.compact b { color: var(--ink); font-weight: 600; }
+</style>
+</head>
+
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <h1 class="name">Destiny Erhabor</h1>
+    <p class="role">Cloud Native Software Engineer — Kubernetes v1.38 Docs Lead</p>
+    <div class="contact">
+      <span>Lagos, Nigeria</span>
+      <span><a href="mailto:destinyerhabor6@gmail.com">destinyerhabor6@gmail.com</a></span>
+      <span><a href="https://github.com/Caesarsage">github.com/Caesarsage</a></span>
+      <span><a href="https://www.linkedin.com/in/destiny-erhabor">linkedin.com/in/destiny-erhabor</a></span>
+    </div>
+  </header>
+
+  <p class="lede">
+    Engineer across cloud native tooling and backend platforms. <b>Docs Lead for the Kubernetes
+    v1.38 release</b>, directing five shadows, and author of the rebuild that cut
+    reference-documentation generation <b>from hours to minutes</b>. At Oris, leads architecture on
+    payroll correctness under concurrency, multi-tenant data isolation and service extraction.
+    CNCF Ambassador.
+  </p>
+
+  <section class="sec">
+    <div class="sec-label">Kubernetes<em>2025 – present</em></div>
+    <div class="sec-body">
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Release Team Docs Lead <span class="tag">v1.38</span></h3>
+          <span class="dates">Sep 2026 – present</span>
+        </div>
+        <ul>
+          <li>Lead the documentation workstream for the v1.38 release cycle (GA 16 Dec 2026),
+            directing <b>five shadows</b> across feature-blog coordination, reference regeneration
+            and the release-day docs freeze.</li>
+          <li>Docs shadow on <span class="tag">v1.37</span>; stepped up to lead after shipping the
+            complete v1.36 and v1.37 reference sets end to end.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Reference docs tooling <span class="org">— kubernetes-sigs/reference-docs</span></h3>
+          <span class="dates">2026</span>
+        </div>
+        <ul>
+          <li><b>Cut reference generation for each release from hours to minutes</b>, removing the
+            hand-maintained per-release configuration that gated every build — API groups, versions
+            and kinds are now detected directly from the OpenAPI spec.</li>
+          <li><b>Corrected the API reference published on kubernetes.io</b>, which had been silently
+            dropping enum values because the upstream spec omitted them; added a target that
+            regenerates enum-complete OpenAPI from source.</li>
+          <li><b>Removed 420 duplicate and wrongly-grouped pages</b> by fixing cross-group version
+            collisions in resource bucketing.</li>
+          <li><b>Opened the API reference to native Hugo rendering</b> — two generator backends that
+            coexist with the production HTML output under byte-identical guarantees, so no existing
+            consumer had to change.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Website &amp; contributor site <span class="org">— kubernetes/website</span></h3>
+          <span class="dates">2025 – present</span>
+        </div>
+        <ul>
+          <li><b>Shipped the complete reference documentation for two releases</b> (v1.36, v1.37) —
+            API, kubectl, kubeadm, component and configuration — on the release-day deadline.</li>
+          <li><b>Brought dark mode to kubernetes.io</b>, leading the Docsy theme upgrade that had
+            blocked it and carrying the site across three major theme versions.</li>
+          <li><b>Website lead for Kubernetes activities at KubeCon NA 2026</b> (Salt Lake City,
+            November). Reviews contributions across the project for technical accuracy and
+            style-guide conformance — among SIG Docs' most active reviewers.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">LFX Mentorship<em>Microcks · CNCF incubating</em></div>
+    <div class="sec-body">
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Mentee, LFX Mentorship 2026 Term 2 <span class="org">— Microcks CLI v2</span></h3>
+          <span class="dates">Jun – Aug 2026</span>
+        </div>
+        <ul>
+          <li><b>Moved contract testing out of CI and into the developer inner loop.</b> Running one
+            previously cost a server, credentials and a specification import, so teams learned about
+            breakages a pull request too late; <code>microcks test --dry-run</code> runs the whole
+            thing against an ephemeral container with none of that. Mentored by the project's
+            founder and maintainers.</li>
+          <li><b>Put contract failures on the pull request diff</b> with machine-readable output
+            modes emitting annotations resolved to the exact failing line of the specification, so a
+            reviewer sees drift in place instead of hunting through folded CI logs.</li>
+          <li><b>Made CLI exit codes something CI can depend on</b> by classifying failures — usage,
+            connection, API, not-found, environment — and <b>brought the workflow into the editor</b>
+            with a Microcks VS Code extension, deliberately CLI-first so it never handles
+            credentials.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Experience</div>
+    <div class="sec-body">
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Senior Backend &amp; Platform Engineer <span class="org">— Oris</span></h3>
+          <span class="dates">Aug 2023 – present</span>
+        </div>
+        <ul>
+          <li>Technical lead on a multi-tenant HR, payroll, hiring, learning and field-sales
+            platform — <b>five product lines, 10,000+ users</b>, TypeScript and Go — owning
+            architecture from decision record through migration to production cutover.</li>
+          <li><b>Stopped employees being paid the wrong amount.</b> Records that fail consistency
+            checks are held out of a pay run rather than paid incorrectly, and sign-off moved from an
+            email trail that left no record to a multi-reviewer, fully auditable one.</li>
+          <li><b>Ended payroll generation failures under concurrent load</b> by rebuilding the write
+            path on explicit transactions, replacing decorator-managed ones that silently lost
+            context across asynchronous job dispatch.</li>
+          <li><b>Made notification delivery reliable</b> — replaced best-effort in-request sends,
+            which dropped mail whenever a request failed, with a standalone Go service on SQS giving
+            at-least-once delivery, and a claim protocol that never blind-resends to a recipient.</li>
+          <li><b>Closed a cross-tenant data leak</b> in keyword search and a privilege-escalation
+            path that let field managers grant themselves accounts; made tenant scope a compile-time
+            requirement platform-wide rather than a derivable guess.</li>
+          <li><b>Retired the legacy employee data model with no downtime and no data freeze</b>,
+            moving every read path, projection and report before demoting job offers to
+            provenance-only, and removed standing cloud credentials from CI across five
+            repositories.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>DevOps Engineer <span class="org">— Monieswitch (contract)</span></h3>
+          <span class="dates">Aug – Nov 2025</span>
+        </div>
+        <ul>
+          <li><b>Moved a payment gateway handling 500K+ daily transactions to Azure without losing a
+            single transaction</b>, holding total downtime under 45 minutes.</li>
+          <li><b>Cut incident resolution from 4 hours to 20 minutes</b> by building the observability
+            stack the team had been operating without — Grafana, Loki, Prometheus, OpenTelemetry.</li>
+          <li><b>Caught vulnerable dependencies and infrastructure drift before release</b> with
+            Trivy scanning and Terratest validation in the pipeline.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Fullstack Engineer <span class="org">— NOVA Bank</span></h3>
+          <span class="dates">Feb – Aug 2025</span>
+        </div>
+        <ul>
+          <li><b>Gave 200+ branch managers daily visibility into their own branch</b> for the first
+            time, building the ETL pipelines that move 500K+ customer records a day out of the
+            Finacle core banking system into embedded analytics — and <b>cut dashboard load from 8
+            seconds to under one</b> so they were usable at the counter.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Senior Software Engineer <span class="org">— ClubZella</span></h3>
+          <span class="dates">2022 – 2023</span>
+        </div>
+        <ul>
+          <li><b>Led a team of 7 engineers</b> on a creator-commerce marketplace for African art,
+            comics and collectibles, and owned its backend — orders, payments, auth, wallets and
+            roles, both deployment pipelines and the domain model.</li>
+          <li><b>Owned the path that takes money and delivers goods</b> — three payment providers
+            with webhook reconciliation and overpayment handling, then fulfilment on top: rate
+            quotes, address search and automatic vendor assignment.</li>
+          <li><b>Cut the time from merged code to production by 60%</b>, establishing the automated
+            testing and CI workflow the team had lacked, and moving the service off Lambda onto
+            containers codified in Terraform and Ansible.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Skills</div>
+    <div class="sec-body">
+      <dl class="skills">
+        <div class="skill"><dt>Languages</dt><dd>Go, TypeScript, Python, SQL, Java (Spring Boot)</dd></div>
+        <div class="skill"><dt>Backend</dt><dd>NestJS, TypeORM, MySQL, PostgreSQL, Redis, Bull, Kafka, Testcontainers</dd></div>
+        <div class="skill"><dt>Frontend</dt><dd>React, Next.js, Astro, React Native, Expo</dd></div>
+        <div class="skill"><dt>Cloud</dt><dd>Kubernetes, Docker, Helm, ArgoCD, Terraform, Ansible, AWS (SQS, S3, KMS, IAM, ECR), Azure, GitHub Actions, OIDC</dd></div>
+        <div class="skill"><dt>Practice</dt><dd>Prometheus, Grafana, Loki, OpenTelemetry, Trivy, architecture decision records, phased migration, mutation testing, Hugo/Docsy, OpenAPI</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Writing &amp; speaking</div>
+    <div class="sec-body">
+      <p class="compact"><b>freeCodeCamp</b> — 24 published tutorials, 100K+ readers. Recent:
+      zero-trust workload identity with SPIFFE, SPIRE and Cilium; Kubernetes authentication with
+      x509, OIDC and cloud identity. <b>LogRocket</b>, <b>Microsoft Tech Community</b> and
+      <b>Aviator</b> — Node.js authentication, SOLID in TypeScript, Azure App Service, CI/CD
+      practice. <b>AWS Community Builder</b> — guest on LogiCast AWS News (S5E14) and university
+      keynotes.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Community</div>
+    <div class="sec-body">
+      <p class="compact"><b>CNCF Ambassador</b> — advocating cloud native adoption and helping
+      people find a way into the projects. <b>NexaScale</b> — mentor and trainer on Azure cloud and
+      DevSecOps programmes, leading 5 mentors (2023 – present). <b>Microsoft Gold Ambassador</b>
+      (2020 – 2023) — co-founded the Power Platform Edo Bootcamp with Edo State Government, training
+      2,000+ participants.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Education</div>
+    <div class="sec-body">
+      <p class="compact"><b>B.Eng. Chemical Engineering</b>, University of Benin — CGPA 4.42/5.0.
+      NPDC/SEPLAT and Jim Ovia scholarships.</p>
+      <p class="compact"><b>Certifications</b> — AWS Solutions Architect Associate (SAA-C03) · Azure
+      Administrator Associate (AZ-104) · Kubernetes and Cloud Native Associate (KCNA).</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

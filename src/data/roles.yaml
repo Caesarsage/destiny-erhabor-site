@@ -1,0 +1,92 @@
+# Employment. Ongoing roles carry a year range, not a live state, so nothing
+# here goes stale on its own. Add a bullet when something ships.
+
+- id: oris
+  order: 1
+  org: Oris
+  role: Software and Platform Engineer
+  dates: Aug 2023 — present
+  current: true
+  # The architecture-ownership claim is made once, in the page dek above this
+  # list. Do not restate it here.
+  summary: >-
+    Technical lead on a multi-tenant HR, payroll, hiring, learning and
+    field-sales platform — five product lines, more than ten thousand users,
+    TypeScript and Go.
+  bullets:
+    - >-
+      Stopped employees being paid the wrong amount — records failing a
+      consistency check are held out of a pay run, and sign-off moved from an
+      email trail that left no record to a fully auditable multi-reviewer path.
+    - >-
+      Ended payroll generation failures under concurrent load by rebuilding the
+      write path on explicit transactions, replacing decorator-managed ones that
+      silently lost context across asynchronous job dispatch.
+    - >-
+      Made notification delivery reliable, replacing best-effort in-request
+      sends that dropped mail whenever a request failed with a standalone Go
+      service on SQS — at-least-once delivery, and a claim protocol that never
+      blind-resends to a recipient.
+    - >-
+      Retired the legacy employee data model with no downtime and no data
+      freeze, moving every read path, projection and report before demoting job
+      offers to provenance only.
+    - >-
+      Shipped a field-sales product across three repositories — backend, React
+      admin console, and an Expo React Native app that keeps working when a
+      representative loses signal in the field.
+    - >-
+      Made tenant scope a compile-time requirement platform-wide rather than a
+      derivable guess, and removed standing cloud credentials from deployment
+      across five repositories.
+
+- id: monieswitch
+  order: 2
+  org: Monieswitch
+  role: DevOps Engineer
+  dates: Aug — Nov 2025
+  note: Contract
+  bullets:
+    - >-
+      Moved a payment gateway handling over half a million daily transactions to
+      Azure without losing a single transaction, holding total downtime under
+      forty-five minutes.
+    - >-
+      Cut incident resolution from four hours to twenty minutes by building the
+      observability stack the team had been operating without.
+    - >-
+      Caught vulnerable dependencies and infrastructure drift before release by
+      adding scanning and infrastructure tests to the deployment pipeline.
+
+- id: nova-bank
+  order: 3
+  org: NOVA Bank
+  role: Fullstack Engineer
+  dates: Feb — Aug 2025
+  bullets:
+    - >-
+      Gave more than two hundred branch managers daily visibility into their own
+      branch for the first time, building the pipelines that move half a million
+      customer records a day out of the core banking system into embedded
+      analytics.
+    - >-
+      Made those dashboards usable — load time fell from eight seconds to under
+      one, through caching and query tuning.
+
+- id: clubzella
+  order: 4
+  org: ClubZella
+  role: Software Engineer
+  dates: 2022 — 2023
+  note: Full time, last month on contract
+  bullets:
+    - >-
+      Led a team of seven engineers on a marketplace and creator platform for
+      African art, comics and collectibles — storefront, timed auctions, and the
+      payouts that put money in creators' hands.
+    # TODO: this is the one metric on the site without both ends. "From two days
+    # to four hours" would land harder than the percentage — needs the baseline.
+    - >-
+      Cut the time from merged code to production by sixty per cent,
+      establishing the automated testing and CI workflow the team had lacked and
+      redesigning the backend around domain boundaries.

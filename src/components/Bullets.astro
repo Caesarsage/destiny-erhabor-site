@@ -1,0 +1,39 @@
+---
+interface Bullet {
+  text: string;
+  pr?: number;
+  month?: string;
+}
+
+interface Props {
+  items: Bullet[];
+  /** owner/name, so a pull request number can become a link. */
+  repo?: string;
+}
+
+const { items, repo } = Astro.props;
+---
+
+<div class="bullets">
+  {
+    items.map((item) => (
+      <div class="bullet">
+        <p>
+          {item.text}
+          {(item.pr || item.month) && (
+            <span class="evidence">
+              {' '}
+              {item.pr && repo ? (
+                <a href={`https://github.com/${repo}/pull/${item.pr}`}>#{item.pr}</a>
+              ) : (
+                item.pr && `#${item.pr}`
+              )}
+              {item.pr && item.month ? ' · ' : null}
+              {item.month}
+            </span>
+          )}
+        </p>
+      </div>
+    ))
+  }
+</div>

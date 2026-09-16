@@ -1,0 +1,398 @@
+/* Shared page structure. Every value here is read off the design canvas
+   artboards: 1440px wide, 112px gutters, a 264px metadata rail sitting
+   beside the content column with a 72px gap. Component-specific styling
+   stays in the component that owns it. */
+
+.wrap {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: var(--gutter);
+  top: 12px;
+  z-index: 10;
+  padding: 10px 14px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------- grid */
+
+/* The asymmetric grid. Below 900px the rail folds above its content. */
+.rail {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: var(--rail-gap);
+}
+
+.rail-label {
+  padding-top: 20px;
+}
+
+.rail-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+@media (max-width: 900px) {
+  .rail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rail-label {
+    padding-top: 0;
+  }
+}
+
+/* A run of rows divided by hairlines, closed off at the bottom. */
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: var(--rail-gap);
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.rows > .row:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------------------------------------------------------------- type */
+
+.page-intro {
+  padding-block: 72px 52px;
+}
+
+.page-h1 {
+  font-size: clamp(1.875rem, 1.27rem + 2.48vw, 3.5rem);
+  line-height: 1.08;
+}
+
+.hero-h1 {
+  font-size: clamp(2.125rem, 1.24rem + 3.62vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+}
+
+.dek {
+  font-size: clamp(1.0625rem, 0.99rem + 0.23vw, 1.1875rem);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 64ch;
+  margin: 26px 0 0;
+}
+
+.hero-dek {
+  font-size: clamp(1.0625rem, 0.94rem + 0.4vw, 1.25rem);
+  max-width: 62ch;
+  margin-top: 30px;
+}
+
+/* Metadata that is not a structural label: dates, repositories, counts. */
+.meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.section {
+  padding-bottom: 48px;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 12px;
+}
+
+.section-head h2 {
+  font-size: 26px;
+}
+
+/* A hairline band with a label at one end and a link at the other. */
+.band {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 30px;
+  border-top: 1px solid var(--rule);
+}
+
+.band h2 {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------- bullets */
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bullet {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.bullet::before {
+  content: "";
+  width: 5px;
+  height: 1px;
+  margin-top: 13px;
+  background: var(--rule);
+}
+
+.bullet p {
+  max-width: 70ch;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Merged work carries a pull request and the month it landed. Both are
+   permanent — nothing here can become false by sitting on the page. */
+.evidence {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------- chips, badges */
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 6px 11px;
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  background: var(--chip);
+  color: var(--ink);
+  transition:
+    border-color 140ms ease,
+    color 140ms ease;
+}
+
+a.chip:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 4px 9px;
+  border-radius: 4px;
+  background: var(--chip);
+  color: var(--muted);
+}
+
+/* Ongoing roles only. Never applied to work in flight. */
+.badge {
+  align-self: flex-start;
+  margin-top: 5px;
+  padding: 4px 9px;
+  border: 1px solid var(--accent2);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent2);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent2);
+  flex: none;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent2);
+}
+
+/* ------------------------------------------------------------- buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+/* Each icon leans the way it points. */
+.icon {
+  transition: transform 160ms ease;
+}
+
+.btn:hover .icon-arrow,
+.nav-resume:hover .icon-arrow {
+  transform: translateX(2px);
+}
+
+.btn:hover .icon-download,
+.nav-resume:hover .icon-download {
+  transform: translateY(2px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+.btn-ghost {
+  padding: 13px 20px;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.btn-ghost:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.btn svg {
+  flex: none;
+}
+
+/* -------------------------------------------------------------- panels */
+
+.panel {
+  padding: 38px 44px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.panel-split {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 22px 24px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  transition: border-color 160ms ease;
+}
+
+.card:hover {
+  border-color: var(--muted);
+}
+
+/* ------------------------------------------------------------- reveal */
+
+/* Sections settle into place once, the first time they are reached. The
+   resting state is applied only when the script has armed it, so a reader
+   without JavaScript — or with reduced motion asked for — never meets a
+   section that failed to appear. */
+html[data-motion] .reveal {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+html[data-motion] .reveal.is-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 480ms ease,
+    transform 480ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Printing never scrolls, so nothing may be waiting to be scrolled to. */
+@media print {
+  html[data-motion] .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .panel {
+    padding: 28px 24px;
+  }
+  .panel-split {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

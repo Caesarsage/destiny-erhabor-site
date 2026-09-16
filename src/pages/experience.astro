@@ -1,0 +1,209 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Bullets from '../components/Bullets.astro';
+import { certifications, education, skills } from '../data/site';
+
+const roles = (await getCollection('roles')).sort((a, b) => a.data.order - b.data.order);
+
+const description =
+  'Backend and platform engineering across HR, payroll, hiring, payments, banking and commerce.';
+---
+
+<Base title="Experience" description={description} active="/experience/">
+  <section class="wrap rail page-intro">
+    <div class="mono rail-label">Experience</div>
+    <div>
+      <h1 class="page-h1">The systems where being wrong is expensive.</h1>
+      <p class="dek">
+        Backend and platform engineering across HR, payroll, hiring, payments, banking and
+        commerce.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="rows">
+      {
+        roles.map((role) => (
+          <article class="row">
+            <div class="rail-stack">
+              <h2 class="org">
+                {role.data.url ? <a href={role.data.url}>{role.data.org}</a> : role.data.org}
+              </h2>
+              <div class="meta">{role.data.dates}</div>
+              {role.data.note && <div class="meta note">{role.data.note}</div>}
+              {role.data.current && <span class="badge">Current</span>}
+            </div>
+
+            <div class="role-body">
+              <h3 class="role-title">{role.data.role}</h3>
+              {role.data.summary && <p class="role-summary">{role.data.summary}</p>}
+              {role.data.bullets.length > 0 && <Bullets items={role.data.bullets} />}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="wrap rail section">
+    <h2 class="mono">Skills</h2>
+    <div class="skills">
+      {
+        skills.map((skill) => (
+          <div class="skill">
+            <div class="skill-label">{skill.label}</div>
+            <div class="skill-value">{skill.value}</div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="wrap rail section education-section">
+    <h2 class="mono">Education</h2>
+    <div class="education">
+      <div class="degree">
+        <div class="degree-body">
+          <h3>{education.degree}</h3>
+          <p>{education.detail}</p>
+        </div>
+        <div class="degree-result">{education.result}</div>
+      </div>
+
+      <div class="certs">
+        <h3 class="mono">Certifications</h3>
+        <div class="chip-row">
+          {certifications.map((cert) => <span class="chip">{cert}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .org {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .org a {
+    color: var(--ink);
+  }
+
+  .note {
+    line-height: 1.5;
+  }
+
+  .role-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .role-title {
+    font-size: 24px;
+    line-height: 1.28;
+  }
+
+  .role-summary {
+    max-width: 72ch;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.62;
+    color: var(--muted);
+  }
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .skill {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .skill-label {
+    padding-top: 2px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink);
+  }
+
+  .skill-value {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .education {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .degree {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 160px;
+    gap: 32px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .degree-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .degree-body h3 {
+    font-size: 21px;
+    line-height: 1.3;
+  }
+
+  .degree-body p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .degree-result {
+    padding-top: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .certs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .education-section {
+    padding-bottom: 56px;
+  }
+
+  @media (max-width: 900px) {
+    .skill {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 4px;
+    }
+
+    .degree {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .degree-result {
+      padding-top: 0;
+    }
+  }
+</style>

@@ -1,0 +1,126 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "Home",
+      "page": "page-1",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1280
+    },
+    {
+      "file": "Experience.dc.html",
+      "title": "Experience",
+      "page": "page-1",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 1860
+    },
+    {
+      "file": "OpenSource.dc.html",
+      "title": "Open source (dark)",
+      "page": "page-1",
+      "x": 0,
+      "y": 2020,
+      "w": 1440,
+      "h": 1880
+    },
+    {
+      "file": "Speaking.dc.html",
+      "title": "Speaking",
+      "page": "page-1",
+      "x": 1560,
+      "y": 2020,
+      "w": 1440,
+      "h": 1540
+    },
+    {
+      "file": "Writing.dc.html",
+      "title": "Writing",
+      "page": "page-1",
+      "x": 0,
+      "y": 4060,
+      "w": 1440,
+      "h": 1440
+    },
+    {
+      "file": "About.dc.html",
+      "title": "About and contact",
+      "page": "page-1",
+      "x": 1560,
+      "y": 4060,
+      "w": 1440,
+      "h": 1280
+    },
+    {
+      "file": "Theme.dc.html",
+      "title": "Theme sheet",
+      "page": "page-1",
+      "x": 0,
+      "y": 5500,
+      "w": 1080,
+      "h": 880
+    },
+    {
+      "file": "Mobile.dc.html",
+      "title": "Home at 390px",
+      "page": "page-1",
+      "x": 1200,
+      "y": 5500,
+      "w": 390,
+      "h": 1200
+    },
+    {
+      "file": "DirectionB.dc.html",
+      "title": "Direction B — Terminal",
+      "page": "page-2",
+      "x": 0,
+      "y": 0,
+      "w": 880,
+      "h": 620
+    },
+    {
+      "file": "DirectionC.dc.html",
+      "title": "Direction C — Editorial",
+      "page": "page-2",
+      "x": 1000,
+      "y": 0,
+      "w": 880,
+      "h": 620
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-1",
+      "page": "page-1",
+      "x": 0,
+      "y": -226,
+      "w": 800,
+      "text": "Direction A — Reference. This canvas is now the build spec.\nMono for structure and metadata, Newsreader for anything you actually read.\n\nNumbers rule: outcome only. Users served, transaction volume, latency, downtime, time-to-resolution. No commits, lines, pull requests, files or decision-record counts anywhere.\n\nBuilding on Astro, deploying to Cloudflare Pages.\nResume button sits in the nav on every page and beside both calls to action. [PHOTO] is the last placeholder.\nOpen source and the phone view open dark so you can see both grounds at once."
+    },
+    {
+      "id": "note-2",
+      "page": "page-2",
+      "x": 0,
+      "y": -156,
+      "w": 700,
+      "text": "Two alternates, deliberately low-fi — they exist to settle the direction, not to be finished.\n\nB trades readability for personality and would date fastest.\nC is the strongest first impression but has nowhere to put a real body of work."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Site"
+    },
+    {
+      "id": "page-2",
+      "name": "Directions"
+    }
+  ]
+}

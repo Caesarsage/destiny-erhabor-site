@@ -1,0 +1,94 @@
+# Open source. A bullet that has merged can carry `pr` and `month`; both are
+# permanent, so they never need revisiting. Work in flight is described
+# without a number and without a status — nothing here can go stale.
+#
+#   - text: What changed for the reader.
+#     pr: 12345
+#     month: Mar 2026
+
+- id: release-team
+  order: 1
+  section: kubernetes
+  title: Release Team
+  meta: v1.37 — v1.38
+  current: true
+  heading: Documentation Lead, v1.38
+  summary: >-
+    Leading the documentation workstream for the release and directing five
+    shadows across feature-blog coordination, reference regeneration and the
+    release-day docs freeze. Docs shadow on v1.37 first, stepping up to lead
+    after shipping two complete reference sets end to end.
+
+- id: reference-docs
+  order: 2
+  section: kubernetes
+  title: Reference tooling
+  repo: kubernetes-sigs/reference-docs
+  heading: Generation, from hours to minutes
+  bullets:
+    - >-
+      Removed the hand-maintained per-release configuration that gated every
+      build — API groups, versions and kinds are now detected directly from the
+      OpenAPI spec.
+    - >-
+      Corrected the API reference published on kubernetes.io, which had been
+      silently dropping enum values because the spec it was generated from
+      omitted them.
+    - >-
+      Removed 420 duplicate and wrongly grouped pages by fixing cross-group
+      version collisions in resource bucketing.
+    - >-
+      Opened the reference to native Hugo rendering with generator backends that
+      coexist with the production output under byte-identical guarantees, so no
+      existing consumer had to change.
+
+- id: website
+  order: 3
+  section: kubernetes
+  title: Website
+  repo: kubernetes/website
+  heading: Shipping the docs everyone reads
+  bullets:
+    - >-
+      Shipped the complete reference documentation for two releases — API,
+      kubectl, kubeadm, component and configuration — on the release-day
+      deadline.
+    - >-
+      Brought dark mode to kubernetes.io, leading the theme upgrade that had
+      blocked it and carrying the site across three major versions.
+    - >-
+      Reorganised Dynamic Resource Allocation into a Resource Management
+      section, so readers find scheduling and device documentation in one place.
+    - >-
+      Reviews contributions across the project for technical accuracy and
+      style-guide conformance, among SIG Docs' most active reviewers.
+
+- id: microcks-vscode
+  order: 1
+  section: elsewhere
+  title: microcks-vscode
+  url: https://github.com/Caesarsage/microcks-vscode
+  heading: Contract testing in the editor
+  blurb: >-
+    A services tree, dry-run tests that drill to step-level failures, and an
+    inspector that compares a mock against a real service.
+
+- id: adewale-conference
+  order: 2
+  section: elsewhere
+  title: adewaleconference.org
+  url: https://www.adewaleconference.org
+  heading: A conference that had to take registrations
+  blurb: >-
+    School registration across nineteen local government areas, sponsorship
+    intake and a waitlist, on Next.js and Airtable.
+
+- id: devops-cloud-projects
+  order: 3
+  section: elsewhere
+  title: DevOps-Cloud-Projects
+  url: https://github.com/Caesarsage/DevOps-Cloud-Projects
+  heading: Hands-on DevOps exercises
+  blurb: >-
+    Real-world challenges for engineers learning infrastructure by building it,
+    plus reusable Terraform modules for Azure.

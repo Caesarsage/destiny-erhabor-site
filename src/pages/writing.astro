@@ -1,0 +1,179 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const articles = (await getCollection('writing')).sort((a, b) => a.data.order - b.data.order);
+const latest = articles.find((article) => article.data.latest);
+const rest = articles.filter((article) => !article.data.latest);
+
+const description =
+  'Published tutorials on freeCodeCamp, read by more than a hundred thousand people, plus long-form work for LogRocket, Aviator and Microsoft since 2022.';
+
+const bylines = [
+  { label: 'freeCodeCamp', href: 'https://www.freecodecamp.org/news/author/CaesarSage/' },
+  { label: 'LogRocket', href: 'https://blog.logrocket.com/author/destinyerhabor/' },
+  { label: 'Aviator', href: 'https://www.aviator.co/blog/author/destinyerhabor/' },
+  {
+    label: 'Microsoft Tech Community',
+    href: 'https://techcommunity.microsoft.com/category/microsoft-learn/blog/educatordeveloperblog',
+  },
+  { label: 'AWS Community Builders', href: 'https://builder.aws.com/community/@caesarsage' },
+];
+---
+
+<Base title="Writing" description={description} active="/writing/">
+  <section class="wrap rail page-intro">
+    <div class="mono rail-label">Writing</div>
+    <div>
+      <h1 class="page-h1">Mostly things I had to work out first.</h1>
+      <p class="dek">{description}</p>
+    </div>
+  </section>
+
+  <section class="wrap rail section bylines-section">
+    <h2 class="mono">Bylines</h2>
+    <div class="chip-row">
+      {bylines.map((byline) => <a class="chip" href={byline.href}>{byline.label}</a>)}
+    </div>
+  </section>
+
+  <section class="wrap section">
+    {
+      latest && (
+        <article class="rail latest">
+          <div class="rail-stack">
+            <div class="publication lead">{latest.data.publication}</div>
+            <span class="badge">Latest</span>
+          </div>
+          <div class="latest-body">
+            <a class="latest-title" href={latest.data.url}>
+              {latest.data.title}
+            </a>
+            <p class="latest-dek">{latest.data.dek}</p>
+            {latest.data.tags.length > 0 && (
+              <div class="tags">
+                {latest.data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </article>
+      )
+    }
+
+    <div class="rows">
+      {
+        rest.map((article) => (
+          <article class="row article-row">
+            <div class="publication">{article.data.publication}</div>
+            <div class="article-body">
+              <a class="article-title" href={article.data.url}>
+                {article.data.title}
+              </a>
+              <p class="article-dek">{article.data.dek}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .latest {
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .publication {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .publication.lead {
+    color: var(--ink);
+  }
+
+  .rail-stack .badge {
+    margin-top: 4px;
+  }
+
+  .latest-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .latest-title {
+    max-width: 26ch;
+    font-size: clamp(1.5rem, 1.1rem + 1.7vw, 2.25rem);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .latest-dek {
+    max-width: 68ch;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .article-row {
+    padding: 24px 0;
+  }
+
+  .article-body {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: flex-start;
+  }
+
+  .article-title {
+    max-width: 46ch;
+    font-size: 24px;
+    line-height: 1.28;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .article-dek {
+    max-width: 70ch;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .bylines-section {
+    padding-bottom: 56px;
+  }
+
+  @media (max-width: 900px) {
+    .latest {
+      padding: 24px 0;
+    }
+
+    .latest-title {
+      max-width: none;
+    }
+
+    .article-title {
+      font-size: 21px;
+      max-width: none;
+    }
+  }
+</style>

@@ -1,0 +1,84 @@
+---
+import { mailto, site, socials } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="place">{site.location}</span>
+    <div class="footer-links">
+      {
+        socials.map((social) => (
+          <a href={social.href} rel="me noopener">
+            {social.label}
+          </a>
+        ))
+      }
+      <a href={mailto} class="footer-email">
+        <span class="email-full">{site.email}</span>
+        <span class="email-short">Email</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding-block: 30px;
+  }
+
+  .place {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .footer-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-links a:hover {
+    color: var(--ink);
+  }
+
+  .email-short {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    /* The 390px artboard puts the links above the place line. */
+    .footer-inner {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 14px;
+      padding-block: 28px;
+    }
+    .footer-links {
+      gap: 18px;
+    }
+    /* The full address does not fit at 390px; the label stands in for it. */
+    .email-full {
+      display: none;
+    }
+    .email-short {
+      display: inline;
+    }
+  }
+</style>

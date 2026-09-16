@@ -1,0 +1,89 @@
+---
+import Icon from './Icon.astro';
+---
+
+<button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+  <Icon name="theme" size={18} />
+</button>
+
+<style>
+  .theme-toggle {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: var(--panel);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .theme-toggle {
+    transition: border-color 160ms ease;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--ink);
+  }
+
+  /* The filled half turns over as the ground does. */
+  .theme-toggle :global(svg) {
+    transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  @media (max-width: 960px) {
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+    }
+    .theme-toggle :global(svg) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+</style>
+
+<script>
+  // The stored choice is an override. With nothing stored the page follows the
+  // operating system, which is what tokens.css already does on its own — the
+  // inline script in <head> only stamps an explicit choice before first paint.
+  const root = document.documentElement;
+  const button = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function current(): 'light' | 'dark' {
+    const explicit = root.dataset.theme;
+    if (explicit === 'light' || explicit === 'dark') return explicit;
+    return systemDark.matches ? 'dark' : 'light';
+  }
+
+  function relabel() {
+    button?.setAttribute(
+      'aria-label',
+      current() === 'dark' ? 'Switch to the light theme' : 'Switch to the dark theme',
+    );
+  }
+
+  const icon = button?.querySelector<SVGElement>('svg');
+  let turns = 0;
+
+  button?.addEventListener('click', () => {
+    const next = current() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch {
+      // Private browsing. The choice holds for this page only.
+    }
+    turns += 180;
+    if (icon) icon.style.transform = `rotate(${turns}deg)`;
+    relabel();
+  });
+
+  systemDark.addEventListener('change', relabel);
+  relabel();
+</script>

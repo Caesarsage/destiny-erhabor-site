@@ -1,0 +1,60 @@
+---
+/** The four glyphs the design uses. Everything is drawn in currentColor. */
+interface Props {
+  name: 'download' | 'arrow' | 'theme' | 'menu';
+  size?: number;
+}
+
+const { name, size = 14 } = Astro.props;
+---
+
+<svg
+  class:list={['icon', `icon-${name}`]}
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  aria-hidden="true"
+  focusable="false"
+>
+  {
+    name === 'download' && (
+      <path
+        d="M12 4v12M6.5 11l5.5 5.5L17.5 11M5 20h14"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    )
+  }
+  {
+    name === 'arrow' && (
+      <path
+        d="M5 12h13M12.5 6l6 6-6 6"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    )
+  }
+  {
+    name === 'theme' && (
+      <>
+        <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5" />
+        <path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" />
+      </>
+    )
+  }
+  {
+    name === 'menu' && (
+      <path
+        d="M4 7h16M4 12h16M4 17h16"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+      />
+    )
+  }
+</svg>

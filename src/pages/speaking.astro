@@ -1,0 +1,310 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { mailto } from '../data/site';
+
+const description =
+  'Podcasts, keynotes and training for engineers moving into cloud native work — the same instinct as the writing, out loud.';
+
+const episodeUrl =
+  'https://www.logicata.com/blog/logicast-aws-news-s3-files-kubernetes-autoscaling-and-the-ai-investment-strategy-shaping-awss-future/';
+
+const inviteUrl = `${mailto}?subject=${encodeURIComponent('Speaking invitation')}`;
+
+const also = [
+  {
+    title: 'University keynotes and community guides',
+    blurb: 'Talks and written guides on cloud infrastructure as an AWS Community Builder.',
+    when: 'Ongoing',
+  },
+  {
+    title: 'Website lead, Kubernetes activities at KubeCon NA 2026',
+    blurb:
+      'Organising, not speaking — the Maintainer Summit, Contributor Meet and Greet, Contributor Social and New Contributor Workshop each get a page, a schedule and a working redirect before anyone lands in Salt Lake City.',
+    when: 'November 2026',
+  },
+];
+
+const community = [
+  {
+    title: 'CNCF Ambassador',
+    blurb: 'Advocating for cloud native adoption and helping people find a way into the projects.',
+    when: 'Current',
+  },
+  {
+    title: 'NexaScale — mentor and trainer',
+    blurb: 'Leading a team of mentors on Azure cloud and DevSecOps programmes.',
+    when: '2023 —',
+  },
+  {
+    title: 'Microsoft Gold Ambassador',
+    blurb:
+      'Co-founded the Power Platform Edo Bootcamp with the Edo State Government, training more than two thousand participants.',
+    when: '2020 — 2023',
+  },
+];
+
+const topics = [
+  'Documentation as infrastructure',
+  'API mocking and contract testing',
+  'Zero-trust workload identity',
+  'Getting started in open source',
+];
+---
+
+<Base title="Speaking" description={description} active="/speaking/">
+  <section class="wrap rail page-intro">
+    <div class="mono rail-label">Speaking</div>
+    <div>
+      <h1 class="page-h1">Cloud native, explained to the people who have to run it.</h1>
+      <p class="dek">{description}</p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="panel">
+      <p class="eyebrow">
+        <span class="dot"></span>
+        Podcast
+      </p>
+
+      <div class="episode">
+        <div>
+          <a class="episode-title" href={episodeUrl}>
+            S3 Files, Kubernetes scaling, and the SaaSpocalypse
+          </a>
+          <p class="episode-dek">
+            Guest on LogiCast AWS News with Karl and Jon: what S3's new file interface actually
+            changes, EKS managed node groups with EC2 Auto Scaling warm pools, and whether AI is
+            coming for the SaaS business model.
+          </p>
+          <div class="episode-tags">
+            <span class="tag on-panel">AWS</span>
+            <span class="tag on-panel">Kubernetes</span>
+            <span class="tag on-panel">Storage</span>
+          </div>
+        </div>
+
+        <div class="episode-facts">
+          <div class="fact">
+            <div class="mono">Show</div>
+            <div class="fact-value">LogiCast AWS News, season 5 episode 14</div>
+          </div>
+          <div class="fact">
+            <div class="mono">Appearing as</div>
+            <div class="fact-value">AWS Community Builder</div>
+          </div>
+          <a class="btn btn-ghost on-panel episode-cta" href={episodeUrl}>
+            Watch the episode
+            <Icon name="arrow" size={14} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap rail section">
+    <h2 class="mono">Also</h2>
+    <div class="rows">
+      {
+        also.map((item) => (
+          <article class="list-row">
+            <div class="list-body">
+              <h3>{item.title}</h3>
+              <p>{item.blurb}</p>
+            </div>
+            <div class="when">{item.when}</div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="wrap rail section">
+    <h2 class="mono">Community</h2>
+    <div class="rows">
+      {
+        community.map((item) => (
+          <article class="list-row">
+            <div class="list-body">
+              <h3>{item.title}</h3>
+              <p>{item.blurb}</p>
+            </div>
+            <div class="when">{item.when}</div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="wrap section topics-section">
+    <div class="topics panel-split">
+      <div>
+        <h2 class="topics-title">Topics I speak on</h2>
+        <div class="chip-row topics-chips">
+          {topics.map((topic) => <span class="tag topic">{topic}</span>)}
+        </div>
+      </div>
+      <a class="btn btn-primary" href={inviteUrl}>
+        Invite me to speak
+        <Icon name="arrow" size={15} />
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .eyebrow {
+    margin: 0;
+  }
+
+  .episode {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 56px;
+    margin-top: 20px;
+    align-items: start;
+  }
+
+  .episode-title {
+    display: block;
+    font-size: clamp(1.5rem, 1.1rem + 1.7vw, 2.25rem);
+    line-height: 1.16;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .episode-dek {
+    max-width: 62ch;
+    margin: 18px 0 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .episode-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  /* Inside a panel the chip ground would match the panel, so tags and the
+     ghost button drop back to the page ground instead. */
+  .on-panel {
+    background: var(--bg);
+  }
+
+  .episode-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .fact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .fact-value {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .episode-cta {
+    align-self: flex-start;
+    margin-top: 4px;
+    padding: 12px 18px;
+    font-size: 12px;
+  }
+
+  .list-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 170px;
+    gap: 32px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .rows > .list-row:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .list-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .list-body h3 {
+    font-size: 21px;
+    line-height: 1.3;
+  }
+
+  .list-body p {
+    max-width: 70ch;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .when {
+    padding-top: 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .topics {
+    padding: 32px 40px;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+  }
+
+  .topics-title {
+    font-size: 26px;
+    line-height: 1.25;
+  }
+
+  .topics-chips {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .topic {
+    padding: 7px 13px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  .topics-section {
+    padding-bottom: 56px;
+  }
+
+  @media (max-width: 900px) {
+    .episode {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
+
+    .list-row {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    .when {
+      padding-top: 0;
+    }
+
+    .topics {
+      padding: 24px;
+    }
+
+    .topics .btn {
+      justify-content: center;
+    }
+  }
+</style>

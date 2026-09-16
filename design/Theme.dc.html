@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..500&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: oklch(0.52 0.15 252); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</helmet>
+<div style="background: oklch(0.985 0.006 85); color: oklch(0.24 0.015 258); font-family: 'Newsreader', Georgia, serif; min-height: 880px; padding: 48px 48px 40px; display: flex; flex-direction: column; gap: 32px">
+
+  <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px">
+    <div>
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: oklch(0.52 0.012 258)">Theme</div>
+      <h1 style="font-size: 40px; line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; margin: 10px 0 0">One palette, two grounds</h1>
+    </div>
+    <div style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.6; color: oklch(0.52 0.012 258); max-width: 42ch; text-align: right">Within a ground the two accents share lightness and chroma and differ only in hue, so neither outweighs the other. Both lift together in the dark.</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px">
+
+    <div style="border: 1px solid oklch(0.88 0.008 85); border-radius: 12px; background: oklch(0.985 0.006 85); padding: 30px">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: oklch(0.52 0.012 258)">Light</div>
+      <div style="display: flex; align-items: baseline; gap: 16px; margin-top: 16px">
+        <div style="font-size: 56px; line-height: 1; color: oklch(0.24 0.015 258)">Aa</div>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <div style="font-size: 16px; color: oklch(0.24 0.015 258)">Newsreader, 300–700</div>
+          <div style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: oklch(0.52 0.012 258)">IBM Plex Mono, 400–600</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 26px">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid oklch(0.88 0.008 85); background: oklch(0.985 0.006 85)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px">bg</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.52 0.012 258)">0.985 0.006 85</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid oklch(0.88 0.008 85); background: oklch(0.963 0.008 85)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px">panel</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.52 0.012 258)">0.963 0.008 85</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.24 0.015 258)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px">ink</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.52 0.012 258)">0.24 0.015 258</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.52 0.012 258)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px">muted</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.52 0.012 258)">0.52 0.012 258</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.88 0.008 85)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px">rule</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.52 0.012 258)">0.88 0.008 85</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.52 0.15 252)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px">accent</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.52 0.012 258)">0.52 0.15 252</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.54 0.13 68)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px">accent2</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.52 0.012 258)">0.54 0.13 68</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid oklch(0.88 0.008 85); background: oklch(0.945 0.011 85)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px">chip</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.52 0.012 258)">0.945 0.011 85</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="border: 1px solid oklch(0.30 0.014 258); border-radius: 12px; background: oklch(0.17 0.012 258); padding: 30px">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: oklch(0.68 0.012 258)">Dark</div>
+      <div style="display: flex; align-items: baseline; gap: 16px; margin-top: 16px">
+        <div style="font-size: 56px; line-height: 1; color: oklch(0.93 0.008 90)">Aa</div>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <div style="font-size: 16px; color: oklch(0.93 0.008 90)">Newsreader, 300–700</div>
+          <div style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: oklch(0.68 0.012 258)">IBM Plex Mono, 400–600</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 26px">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid oklch(0.30 0.014 258); background: oklch(0.17 0.012 258)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px; color: oklch(0.93 0.008 90)">bg</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.68 0.012 258)">0.17 0.012 258</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid oklch(0.30 0.014 258); background: oklch(0.215 0.014 258)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px; color: oklch(0.93 0.008 90)">panel</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.68 0.012 258)">0.215 0.014 258</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.93 0.008 90)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px; color: oklch(0.93 0.008 90)">ink</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.68 0.012 258)">0.93 0.008 90</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.68 0.012 258)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px; color: oklch(0.93 0.008 90)">muted</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.68 0.012 258)">0.68 0.012 258</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.30 0.014 258)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px; color: oklch(0.93 0.008 90)">rule</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.68 0.012 258)">0.30 0.014 258</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.74 0.13 248)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px; color: oklch(0.93 0.008 90)">accent</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.68 0.012 258)">0.74 0.13 248</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; background: oklch(0.76 0.12 72)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px; color: oklch(0.93 0.008 90)">accent2</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.68 0.012 258)">0.76 0.12 72</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid oklch(0.30 0.014 258); background: oklch(0.25 0.02 258)"></span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; width: 62px; color: oklch(0.93 0.008 90)">chip</span>
+          <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.68 0.012 258)">0.25 0.02 258</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-top: 24px; border-top: 1px solid oklch(0.88 0.008 85)">
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: oklch(0.52 0.012 258)">Default</div>
+      <div style="font-size: 16px; line-height: 1.5">Follows the operating system, with an explicit override stored per visitor.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: oklch(0.52 0.012 258)">Ground</div>
+      <div style="font-size: 16px; line-height: 1.5">Warm paper in light, cool slate in dark. Neither is pure white or pure black.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: oklch(0.52 0.012 258)">Contrast</div>
+      <div style="font-size: 16px; line-height: 1.5">Body text clears 7:1 in both grounds; muted text clears 4.5:1.</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":1080,"height":880}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

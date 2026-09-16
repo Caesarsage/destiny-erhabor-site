@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..500&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+</helmet>
+<div style="--bg: {{t.bg}}; --panel: {{t.panel}}; --ink: {{t.ink}}; --muted: {{t.muted}}; --rule: {{t.rule}}; --accent: {{t.accent}}; --accent2: {{t.accent2}}; --chip: {{t.chip}}; --serif: 'Newsreader', Georgia, 'Times New Roman', serif; --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace; background: var(--bg); color: var(--ink); font-family: var(--serif); min-height: 1860px; display: flex; flex-direction: column">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 26px 112px; border-bottom: 1px solid var(--rule)">
+    <a href="#" style="font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink)">Destiny Erhabor</a>
+    <nav style="display: flex; align-items: center; gap: 26px">
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--ink)">Experience</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">Open source</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">Writing</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">Speaking</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">About</a>
+      <a href="#" style="display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 12px; color: var(--ink); padding: 8px 14px; border: 1px solid var(--rule); border-radius: 6px">
+        Resume
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 4v12M6.5 11l5.5 5.5L17.5 11M5 20h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+      <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5" stroke="var(--ink)" stroke-width="1.5"></circle>
+          <path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="var(--ink)"></path>
+        </svg>
+      </div>
+    </nav>
+  </header>
+
+  <section style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 72px 112px 52px">
+    <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); padding-top: 20px">Experience</div>
+    <div>
+      <h1 style="font-size: 56px; line-height: 1.08; font-weight: 400; letter-spacing: -0.02em; margin: 0; text-wrap: pretty">The systems where being wrong is expensive.</h1>
+      <p style="font-size: 19px; line-height: 1.6; color: var(--muted); max-width: 64ch; margin: 26px 0 0">Backend and platform engineering across HR, payroll, hiring, payments, banking and commerce.</p>
+    </div>
+  </section>
+
+  <section style="padding: 0 112px 52px">
+    <div style="display: flex; flex-direction: column">
+
+      <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 28px 0; border-top: 1px solid var(--rule)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <div style="font-size: 22px; line-height: 1.3">Oris</div>
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--muted)">Aug 2023 — present</div>
+          <span style="font-family: var(--mono); font-size: 11px; padding: 4px 9px; border: 1px solid var(--accent2); border-radius: 4px; color: var(--accent2); align-self: flex-start; margin-top: 5px">Current</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="font-size: 24px; line-height: 1.28">Software and Platform Engineer</div>
+          <div style="font-size: 16px; line-height: 1.62; color: var(--muted); max-width: 72ch">Technical lead on a multi-tenant HR, payroll, hiring, learning and field-sales platform — five product lines, more than ten thousand users, TypeScript and Go.</div>
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 2px">
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Stopped employees being paid the wrong amount — records failing a consistency check are held out of a pay run, and sign-off moved from an email trail that left no record to a fully auditable multi-reviewer path.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Ended payroll generation failures under concurrent load by rebuilding the write path on explicit transactions, replacing decorator-managed ones that silently lost context across asynchronous job dispatch.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Made notification delivery reliable, replacing best-effort in-request sends that dropped mail whenever a request failed with a standalone Go service on SQS — at-least-once delivery, and a claim protocol that never blind-resends to a recipient.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Retired the legacy employee data model with no downtime and no data freeze, moving every read path, projection and report before demoting job offers to provenance only.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Shipped a field-sales product across three repositories — backend, React admin console, and an Expo React Native app that keeps working when a representative loses signal in the field.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Made tenant scope a compile-time requirement platform-wide rather than a derivable guess, and removed standing cloud credentials from deployment across five repositories.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 28px 0; border-top: 1px solid var(--rule)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <div style="font-size: 22px; line-height: 1.3">Monieswitch</div>
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--muted)">Aug — Nov 2025</div>
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--muted)">Contract</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="font-size: 24px; line-height: 1.28">DevOps Engineer</div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Moved a payment gateway handling over half a million daily transactions to Azure without losing a single transaction, holding total downtime under forty-five minutes.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Cut incident resolution from four hours to twenty minutes by building the observability stack the team had been operating without.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Caught vulnerable dependencies and infrastructure drift before release by adding scanning and infrastructure tests to the deployment pipeline.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 28px 0; border-top: 1px solid var(--rule)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <div style="font-size: 22px; line-height: 1.3">NOVA Bank</div>
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--muted)">Feb — Aug 2025</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="font-size: 24px; line-height: 1.28">Fullstack Engineer</div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Gave more than two hundred branch managers daily visibility into their own branch for the first time, building the pipelines that move half a million customer records a day out of the core banking system into embedded analytics.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Made those dashboards usable — load time fell from eight seconds to under one, through caching and query tuning.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 28px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule)">
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <a href="#" style="font-size: 22px; line-height: 1.3; color: var(--ink)">ClubZella</a>
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--muted)">2022 — 2023</div>
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--muted); line-height: 1.5">Full time, last month on contract</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="font-size: 24px; line-height: 1.28">Software Engineer</div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Led a team of seven engineers on a marketplace and creator platform for African art, comics and collectibles — storefront, timed auctions, and the payouts that put money in creators' hands.</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 14px; align-items: start">
+              <div style="width: 5px; height: 1px; background: var(--rule); margin-top: 13px"></div>
+              <div style="font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 70ch">Cut the time from merged code to production by sixty per cent, establishing the automated testing and CI workflow the team had lacked and redesigning the backend around domain boundaries.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="padding: 0 112px 48px">
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px">
+      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted)">Skills</div>
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px">
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--ink); padding-top: 2px">Languages</div>
+          <div style="font-size: 16px; line-height: 1.55; color: var(--muted)">Go, TypeScript, Python, SQL, Java with Spring Boot</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px">
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--ink); padding-top: 2px">Backend</div>
+          <div style="font-size: 16px; line-height: 1.55; color: var(--muted)">NestJS, TypeORM, MySQL, PostgreSQL, Redis, Bull, Kafka, Testcontainers</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px">
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--ink); padding-top: 2px">Frontend</div>
+          <div style="font-size: 16px; line-height: 1.55; color: var(--muted)">React, Next.js, Astro, TypeScript, Hugo</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px">
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--ink); padding-top: 2px">Mobile</div>
+          <div style="font-size: 16px; line-height: 1.55; color: var(--muted)">React Native, Expo, over-the-air release management</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px">
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--ink); padding-top: 2px">Cloud</div>
+          <div style="font-size: 16px; line-height: 1.55; color: var(--muted)">Kubernetes, Docker, Helm, ArgoCD, Terraform, AWS, Azure</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px">
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--ink); padding-top: 2px">Platform</div>
+          <div style="font-size: 16px; line-height: 1.55; color: var(--muted)">GitHub Actions, OIDC, Prow, Prometheus, Grafana, Loki, OpenTelemetry, Trivy</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px">
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--ink); padding-top: 2px">Practice</div>
+          <div style="font-size: 16px; line-height: 1.55; color: var(--muted)">Architecture decision records, phased migration, mutation testing, incident response, OpenAPI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0 112px 56px">
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px">
+      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted)">Education</div>
+      <div style="display: flex; flex-direction: column; gap: 18px">
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 32px; padding-top: 18px; border-top: 1px solid var(--rule)">
+          <div style="display: flex; flex-direction: column; gap: 5px">
+            <div style="font-size: 21px; line-height: 1.3">B.Eng, Chemical Engineering</div>
+            <div style="font-size: 16px; line-height: 1.55; color: var(--muted)">University of Benin — NPDC/SEPLAT and Jim Ovia scholarships</div>
+          </div>
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 6px">CGPA 4.42 / 5.0</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid var(--rule)">
+          <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted)">Certifications</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 9px">
+            <span style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border: 1px solid var(--rule); border-radius: 5px">AWS Solutions Architect Associate</span>
+            <span style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border: 1px solid var(--rule); border-radius: 5px">Azure Administrator Associate</span>
+            <span style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border: 1px solid var(--rule); border-radius: 5px">Kubernetes and Cloud Native Associate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 30px 112px; border-top: 1px solid var(--rule)">
+    <span style="font-family: var(--mono); font-size: 12px; color: var(--muted)">Lagos, Nigeria</span>
+    <div style="display: flex; align-items: center; gap: 22px">
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">GitHub</a>
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">LinkedIn</a>
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">X</a>
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">destinyerhabor6@gmail.com</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"dark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = this.props.dark ?? false;
+    var light = {
+      bg: 'oklch(0.985 0.006 85)',
+      panel: 'oklch(0.963 0.008 85)',
+      ink: 'oklch(0.24 0.015 258)',
+      muted: 'oklch(0.52 0.012 258)',
+      rule: 'oklch(0.88 0.008 85)',
+      accent: 'oklch(0.52 0.15 252)',
+      accent2: 'oklch(0.54 0.13 68)',
+      chip: 'oklch(0.945 0.011 85)'
+    };
+    var night = {
+      bg: 'oklch(0.17 0.012 258)',
+      panel: 'oklch(0.215 0.014 258)',
+      ink: 'oklch(0.93 0.008 90)',
+      muted: 'oklch(0.68 0.012 258)',
+      rule: 'oklch(0.30 0.014 258)',
+      accent: 'oklch(0.74 0.13 248)',
+      accent2: 'oklch(0.76 0.12 72)',
+      chip: 'oklch(0.25 0.02 258)'
+    };
+    return { t: dark ? night : light };
+  }
+}
+</script>
+</body>
+</html>

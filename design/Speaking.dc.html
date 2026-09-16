@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..500&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+</helmet>
+<div style="--bg: {{t.bg}}; --panel: {{t.panel}}; --ink: {{t.ink}}; --muted: {{t.muted}}; --rule: {{t.rule}}; --accent: {{t.accent}}; --accent2: {{t.accent2}}; --chip: {{t.chip}}; --serif: 'Newsreader', Georgia, 'Times New Roman', serif; --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace; background: var(--bg); color: var(--ink); font-family: var(--serif); min-height: 1540px; display: flex; flex-direction: column">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 26px 112px; border-bottom: 1px solid var(--rule)">
+    <a href="#" style="font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink)">Destiny Erhabor</a>
+    <nav style="display: flex; align-items: center; gap: 26px">
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">Experience</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">Open source</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">Writing</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--ink)">Speaking</a>
+      <a href="#" style="font-family: var(--mono); font-size: 13px; color: var(--muted)">About</a>
+      <a href="#" style="display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 12px; color: var(--ink); padding: 8px 14px; border: 1px solid var(--rule); border-radius: 6px">
+        Resume
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 4v12M6.5 11l5.5 5.5L17.5 11M5 20h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+      <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5" stroke="var(--ink)" stroke-width="1.5"></circle>
+          <path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="var(--ink)"></path>
+        </svg>
+      </div>
+    </nav>
+  </header>
+
+  <section style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px; padding: 72px 112px 48px">
+    <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); padding-top: 20px">Speaking</div>
+    <div>
+      <h1 style="font-size: 56px; line-height: 1.08; font-weight: 400; letter-spacing: -0.02em; margin: 0; text-wrap: pretty">Cloud native, explained to the people who have to run it.</h1>
+      <p style="font-size: 19px; line-height: 1.6; color: var(--muted); max-width: 64ch; margin: 26px 0 0">Podcasts, keynotes and training for engineers moving into cloud native work — the same instinct as the writing, out loud.</p>
+    </div>
+  </section>
+
+  <section style="padding: 0 112px 48px">
+    <div style="border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); padding: 38px 44px">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--accent2)"></span>
+        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent2)">Podcast</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 56px; margin-top: 20px; align-items: start">
+        <div>
+          <a href="#" style="font-size: 36px; line-height: 1.16; font-weight: 400; letter-spacing: -0.018em; color: var(--ink); display: block; text-wrap: pretty">S3 Files, Kubernetes scaling, and the SaaSpocalypse</a>
+          <p style="font-size: 17px; line-height: 1.6; color: var(--muted); max-width: 62ch; margin: 18px 0 0">Guest on LogiCast AWS News with Karl and Jon: what S3's new file interface actually changes, EKS managed node groups with EC2 Auto Scaling warm pools, and whether AI is coming for the SaaS business model.</p>
+          <div style="display: flex; gap: 8px; margin-top: 18px">
+            <span style="font-family: var(--mono); font-size: 11px; padding: 4px 9px; border-radius: 4px; background: var(--bg); color: var(--muted)">AWS</span>
+            <span style="font-family: var(--mono); font-size: 11px; padding: 4px 9px; border-radius: 4px; background: var(--bg); color: var(--muted)">Kubernetes</span>
+            <span style="font-family: var(--mono); font-size: 11px; padding: 4px 9px; border-radius: 4px; background: var(--bg); color: var(--muted)">Storage</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted)">Show</div>
+            <div style="font-size: 16px; line-height: 1.45">LogiCast AWS News, season 5 episode 14</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted)">Appearing as</div>
+            <div style="font-size: 16px; line-height: 1.45">AWS Community Builder</div>
+          </div>
+          <a href="#" style="display: flex; align-items: center; gap: 9px; padding: 12px 18px; border: 1px solid var(--rule); border-radius: 6px; background: var(--bg); font-family: var(--mono); font-size: 12px; color: var(--ink); align-self: flex-start; margin-top: 4px">
+            Watch the episode
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0 112px 48px">
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px">
+      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted)">Also</div>
+      <div style="display: flex; flex-direction: column">
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 32px; padding: 20px 0; border-top: 1px solid var(--rule)">
+          <div style="display: flex; flex-direction: column; gap: 5px">
+            <div style="font-size: 21px; line-height: 1.3">University keynotes and community guides</div>
+            <div style="font-size: 16px; line-height: 1.55; color: var(--muted); max-width: 70ch">Talks and written guides on cloud infrastructure as an AWS Community Builder.</div>
+          </div>
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 6px">Ongoing</div>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 32px; padding: 20px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule)">
+          <div style="display: flex; flex-direction: column; gap: 5px">
+            <div style="font-size: 21px; line-height: 1.3">Website lead, Kubernetes activities at KubeCon NA 2026</div>
+            <div style="font-size: 16px; line-height: 1.55; color: var(--muted); max-width: 70ch">Organising, not speaking — the Maintainer Summit, Contributor Meet and Greet, Contributor Social and New Contributor Workshop each get a page, a schedule and a working redirect before anyone lands in Salt Lake City.</div>
+          </div>
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 6px">November 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0 112px 48px">
+    <div style="display: grid; grid-template-columns: 264px minmax(0, 1fr); gap: 72px">
+      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted)">Community</div>
+      <div style="display: flex; flex-direction: column">
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 32px; padding: 20px 0; border-top: 1px solid var(--rule)">
+          <div style="display: flex; flex-direction: column; gap: 5px">
+            <div style="font-size: 21px; line-height: 1.3">CNCF Ambassador</div>
+            <div style="font-size: 16px; line-height: 1.55; color: var(--muted); max-width: 70ch">Advocating for cloud native adoption and helping people find a way into the projects.</div>
+          </div>
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 6px">Current</div>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 32px; padding: 20px 0; border-top: 1px solid var(--rule)">
+          <div style="display: flex; flex-direction: column; gap: 5px">
+            <div style="font-size: 21px; line-height: 1.3">NexaScale — mentor and trainer</div>
+            <div style="font-size: 16px; line-height: 1.55; color: var(--muted); max-width: 70ch">Leading a team of mentors on Azure cloud and DevSecOps programmes.</div>
+          </div>
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 6px">2023 —</div>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 32px; padding: 20px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule)">
+          <div style="display: flex; flex-direction: column; gap: 5px">
+            <div style="font-size: 21px; line-height: 1.3">Microsoft Gold Ambassador</div>
+            <div style="font-size: 16px; line-height: 1.55; color: var(--muted); max-width: 70ch">Co-founded the Power Platform Edo Bootcamp with the Edo State Government, training more than two thousand participants.</div>
+          </div>
+          <div style="font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 6px">2020 — 2023</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0 112px 56px">
+    <div style="border: 1px solid var(--rule); border-radius: 10px; padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; gap: 48px">
+      <div>
+        <div style="font-size: 26px; line-height: 1.25">Topics I speak on</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px">
+          <span style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border-radius: 5px; background: var(--chip); color: var(--muted)">Documentation as infrastructure</span>
+          <span style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border-radius: 5px; background: var(--chip); color: var(--muted)">API mocking and contract testing</span>
+          <span style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border-radius: 5px; background: var(--chip); color: var(--muted)">Zero-trust workload identity</span>
+          <span style="font-family: var(--mono); font-size: 12px; padding: 7px 13px; border-radius: 5px; background: var(--chip); color: var(--muted)">Getting started in open source</span>
+        </div>
+      </div>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; padding: 14px 22px; background: var(--accent); color: var(--bg); border-radius: 6px; font-family: var(--mono); font-size: 13px; font-weight: 500; white-space: nowrap">
+        Invite me to speak
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <footer style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 30px 112px; border-top: 1px solid var(--rule)">
+    <span style="font-family: var(--mono); font-size: 12px; color: var(--muted)">Lagos, Nigeria</span>
+    <div style="display: flex; align-items: center; gap: 22px">
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">GitHub</a>
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">LinkedIn</a>
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">X</a>
+      <a href="#" style="font-family: var(--mono); font-size: 12px; color: var(--muted)">destinyerhabor6@gmail.com</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"dark":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1540}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = this.props.dark ?? false;
+    var light = {
+      bg: 'oklch(0.985 0.006 85)',
+      panel: 'oklch(0.963 0.008 85)',
+      ink: 'oklch(0.24 0.015 258)',
+      muted: 'oklch(0.52 0.012 258)',
+      rule: 'oklch(0.88 0.008 85)',
+      accent: 'oklch(0.52 0.15 252)',
+      accent2: 'oklch(0.54 0.13 68)',
+      chip: 'oklch(0.945 0.011 85)'
+    };
+    var night = {
+      bg: 'oklch(0.17 0.012 258)',
+      panel: 'oklch(0.215 0.014 258)',
+      ink: 'oklch(0.93 0.008 90)',
+      muted: 'oklch(0.68 0.012 258)',
+      rule: 'oklch(0.30 0.014 258)',
+      accent: 'oklch(0.74 0.13 248)',
+      accent2: 'oklch(0.76 0.12 72)',
+      chip: 'oklch(0.25 0.02 258)'
+    };
+    return { t: dark ? night : light };
+  }
+}
+</script>
+</body>
+</html>

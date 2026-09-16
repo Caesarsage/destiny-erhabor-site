@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..700&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: oklch(0.55 0.17 28); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</helmet>
+<div style="background: oklch(0.97 0.004 85); color: oklch(0.20 0.008 258); font-family: 'Newsreader', Georgia, serif; min-height: 620px; padding: 28px 32px; display: flex; flex-direction: column">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px dashed oklch(0.78 0.006 85); font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace">
+    <div style="font-size: 12px; color: oklch(0.52 0.008 258)">Direction C — Editorial</div>
+    <div style="font-size: 11px; color: oklch(0.52 0.008 258)">one screen · huge type · almost no copy</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 132px; gap: 36px; flex-grow: 1; padding-top: 26px">
+    <div style="display: flex; flex-direction: column">
+      <div style="font-size: 82px; line-height: 0.92; letter-spacing: -0.035em; font-weight: 500">Destiny<br>Erhabor</div>
+      <div style="width: 148px; height: 5px; background: oklch(0.55 0.17 28); margin-top: 22px"></div>
+      <div style="font-size: 21px; line-height: 1.45; max-width: 34ch; margin-top: 22px; color: oklch(0.36 0.008 258)">Kubernetes documentation infrastructure, and the systems underneath it.</div>
+
+      <div style="display: flex; gap: 12px; margin-top: auto; padding-top: 26px">
+        <div style="width: 132px; height: 76px; background: oklch(0.88 0.005 85)"></div>
+        <div style="width: 132px; height: 76px; background: oklch(0.88 0.005 85)"></div>
+        <div style="width: 132px; height: 76px; background: oklch(0.88 0.005 85)"></div>
+        <div style="display: flex; align-items: flex-end; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; color: oklch(0.52 0.008 258)">three work<br>thumbnails</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; border-left: 1px solid oklch(0.85 0.005 85); padding-left: 22px">
+      <div style="font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: oklch(0.52 0.008 258)">Index</div>
+      <div style="font-size: 13px">01 Work</div>
+      <div style="font-size: 13px">02 Writing</div>
+      <div style="font-size: 13px">03 Community</div>
+      <div style="font-size: 13px">04 About</div>
+      <div style="margin-top: auto; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 11px; color: oklch(0.52 0.008 258)">Open to work</div>
+        <div style="font-size: 11px; color: oklch(0.55 0.17 28)">Get in touch</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":880,"height":620}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+---
+import '@fontsource-variable/newsreader';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../styles/tokens.css';
+import '../styles/site.css';
+
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Pathname of the nav entry to mark as current. Home has none. */
+  active?: string;
+}
+
+const { title, description, active } = Astro.props;
+
+const pageTitle = title === site.name ? site.name : `${title} — ${site.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+
+    {/* Stamps the stored choice before first paint. Without it a reader who
+        picked light on a dark machine — or the reverse — sees the other
+        theme flash first. With nothing stored the page follows the system,
+        which the stylesheet handles on its own. */}
+    <script is:inline>
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'light' || stored === 'dark') {
+          document.documentElement.dataset.theme = stored;
+        }
+      } catch (error) {
+        /* Private browsing. Fall back to the system preference. */
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Nav active={active} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Each top-level section settles in once, the first time it is reached.
+      // Nothing is hidden until this runs, so a failure here leaves the page
+      // fully readable rather than blank.
+      const wanted = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const sections = document.querySelectorAll<HTMLElement>('main > section');
+
+      if (wanted && 'IntersectionObserver' in window && sections.length > 0) {
+        document.documentElement.dataset.motion = '';
+        sections.forEach((section) => section.classList.add('reveal'));
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-in');
+              observer.unobserve(entry.target);
+            });
+          },
+          { rootMargin: '0px 0px -10% 0px' },
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* The footer is pushed to the bottom on short pages. */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+</style>

@@ -1,0 +1,72 @@
+# Published writing. The page shows the newest first; `latest: true` gets the
+# full-width treatment. Everything else is a row.
+#
+# This is a selection, not the archive — there are twenty-four freeCodeCamp
+# pieces alone, and four more on Aviator. The byline chips at the foot of the
+# page carry a reader to the full list on each publication, so a piece earns a
+# row here only if it is worth a hiring manager's attention.
+
+- id: zero-trust-workload-identity
+  order: 1
+  latest: true
+  publication: freeCodeCamp
+  title: >-
+    How to implement zero-trust workload identity in Kubernetes with SPIFFE,
+    SPIRE and Cilium
+  url: https://www.freecodecamp.org/news/implement-zero-trust-workload-identity-in-kubernetes-with-spiffe-spire-and-cilium/
+  dek: >-
+    Issuing cryptographic identities to workloads with SPIRE, then letting
+    Cilium enforce mutual TLS between services with eBPF instead of a sidecar
+    per pod.
+  tags:
+    - Kubernetes
+    - Zero trust
+    - eBPF
+
+- id: kubernetes-authentication
+  order: 2
+  publication: freeCodeCamp
+  title: Kubernetes authentication with x509, OIDC and cloud identity
+  url: https://www.freecodecamp.org/news/how-to-authenticate-users-in-kubernetes-x509-certificates-oidc-and-cloud-identity/
+  dek: Who the API server thinks you are, and the three quite different ways it decides.
+
+- id: kubernetes-networking
+  order: 3
+  publication: freeCodeCamp
+  title: Kubernetes networking
+  url: https://www.freecodecamp.org/news/kubernetes-networking-tutorial-for-developers/
+  dek: How a packet actually gets from one pod to another, without hand-waving at the CNI.
+
+- id: node-server-side-auth
+  order: 4
+  publication: LogRocket
+  title: Server-side authentication in Node.js
+  url: https://blog.logrocket.com/node-js-server-side-authentication-tokens-vs-jwt/
+  dek: Sessions, tokens and the failure modes each one hands you.
+
+- id: solid-typescript
+  order: 5
+  publication: LogRocket
+  title: SOLID principles in TypeScript
+  url: https://blog.logrocket.com/applying-solid-principles-typescript/
+  dek: >-
+    The five ideas, written as TypeScript you would actually ship rather than
+    shapes and animals.
+
+- id: azure-app-service
+  order: 6
+  publication: Microsoft Tech Community
+  title: Deploy and monitor web apps on Azure App Service
+  url: https://techcommunity.microsoft.com/blog/educatordeveloperblog/how-to-deploy-and-monitor-web-applications-on-azure-app-service/3960676
+  dek: >-
+    Getting an application onto App Service, and the monitoring that tells you
+    how it behaves once it is there.
+
+- id: databricks-guide
+  order: 7
+  publication: Microsoft Tech Community
+  title: An introductory guide to Databricks
+  url: https://techcommunity.microsoft.com/blog/educatordeveloperblog/empowering-startups-the-introductory-guide-to-databricks-for-entrepreneurs-data-/3934092
+  dek: >-
+    What Databricks is for, and where a small team starts with it when there is
+    no data platform already in place.

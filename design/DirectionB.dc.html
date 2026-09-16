@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: oklch(0.78 0.14 150); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</helmet>
+<div style="background: oklch(0.19 0.008 258); color: oklch(0.86 0.008 258); font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; min-height: 620px; padding: 28px 32px; display: flex; flex-direction: column; gap: 22px">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px dashed oklch(0.34 0.01 258)">
+    <div style="font-size: 12px; color: oklch(0.60 0.01 258)">Direction B — Terminal</div>
+    <div style="font-size: 11px; color: oklch(0.60 0.01 258)">dark by default · mono only · dense</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="font-size: 13px; color: oklch(0.60 0.01 258)"><span style="color: oklch(0.78 0.14 150)">~</span> $ whoami</div>
+    <div style="font-size: 30px; line-height: 1.2; letter-spacing: -0.01em">destiny erhabor</div>
+    <div style="font-size: 14px; color: oklch(0.66 0.01 258); max-width: 62ch; line-height: 1.6">cloud native software engineer · kubernetes v1.38 docs lead · cncf ambassador</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <div style="font-size: 13px; color: oklch(0.60 0.01 258)"><span style="color: oklch(0.78 0.14 150)">~</span> $ ls</div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+      <div style="border: 1px solid oklch(0.34 0.01 258); padding: 12px 14px; font-size: 13px">work/</div>
+      <div style="border: 1px solid oklch(0.34 0.01 258); padding: 12px 14px; font-size: 13px">writing/</div>
+      <div style="border: 1px solid oklch(0.34 0.01 258); padding: 12px 14px; font-size: 13px">community/</div>
+      <div style="border: 1px solid oklch(0.34 0.01 258); padding: 12px 14px; font-size: 13px">about/</div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <div style="font-size: 13px; color: oklch(0.60 0.01 258)"><span style="color: oklch(0.78 0.14 150)">~</span> $ cat work/recent</div>
+    <div style="display: flex; flex-direction: column; gap: 7px">
+      <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr) 96px; gap: 14px; align-items: center">
+        <div style="font-size: 12px; color: oklch(0.60 0.01 258)">2026-09</div>
+        <div style="height: 13px; background: oklch(0.30 0.01 258)"></div>
+        <div style="font-size: 11px; color: oklch(0.78 0.14 150)">[review]</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr) 96px; gap: 14px; align-items: center">
+        <div style="font-size: 12px; color: oklch(0.60 0.01 258)">2026-08</div>
+        <div style="height: 13px; background: oklch(0.30 0.01 258); width: 82%"></div>
+        <div style="font-size: 11px; color: oklch(0.60 0.01 258)">[merged]</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr) 96px; gap: 14px; align-items: center">
+        <div style="font-size: 12px; color: oklch(0.60 0.01 258)">2026-07</div>
+        <div style="height: 13px; background: oklch(0.30 0.01 258); width: 91%"></div>
+        <div style="font-size: 11px; color: oklch(0.60 0.01 258)">[merged]</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr) 96px; gap: 14px; align-items: center">
+        <div style="font-size: 12px; color: oklch(0.60 0.01 258)">2026-06</div>
+        <div style="height: 13px; background: oklch(0.30 0.01 258); width: 68%"></div>
+        <div style="font-size: 11px; color: oklch(0.60 0.01 258)">[merged]</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: oklch(0.78 0.14 150); color: oklch(0.19 0.008 258); padding: 8px 14px; font-size: 12px">
+    <span>NORMAL</span>
+    <span>open to work · utc+01:00</span>
+    <span>github.com/Caesarsage</span>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":880,"height":620}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>
