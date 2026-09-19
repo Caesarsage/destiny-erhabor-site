@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { nav } from '../data/site';
+
+const description = 'That page is not here.';
+---
+
+<Base title="Not found" description={description}>
+  <section class="wrap rail page-intro">
+    <div class="mono rail-label">404</div>
+    <div>
+      <h1 class="page-h1">That page is not here.</h1>
+      <p class="dek">
+        Either it moved, or the link that brought you was wrong. Nothing is broken on your end.
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="/">
+          Back to the start
+          <Icon name="arrow" size={15} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap rail section">
+    <h2 class="mono">Everything there is</h2>
+    <nav class="rows" aria-label="All pages">
+      {
+        nav.map((item) => (
+          <a class="row lost-row" href={item.href}>
+            <span class="lost-title">{item.label}</span>
+            <span class="lost-path mono">{item.href}</span>
+          </a>
+        ))
+      }
+    </nav>
+  </section>
+</Base>
+
+<style>
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 34px;
+  }
+
+  /* The rows are whole-row links here, unlike everywhere else on the site,
+     so they take a hover state the reading lists do not. */
+  .lost-row {
+    align-items: baseline;
+    color: var(--ink);
+    transition: background-color 140ms ease;
+  }
+
+  .lost-row:hover {
+    background: var(--panel);
+    text-decoration: none;
+  }
+
+  .lost-row:hover .lost-title {
+    color: var(--accent);
+  }
+
+  .lost-title {
+    font-size: 22px;
+    line-height: 1.3;
+    transition: color 140ms ease;
+  }
+
+  .lost-path {
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 900px) {
+    .lost-row {
+      gap: 4px;
+    }
+    .actions .btn {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+</style>
