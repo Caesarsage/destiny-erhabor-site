@@ -25,7 +25,10 @@ interface Props {
 
 const { title, description, active } = Astro.props;
 
-const pageTitle = title === site.name ? site.name : `${title} — ${site.name}`;
+/* The home page leads with the name and follows with the role. A bare name is
+   weaker in a result list, and there is another Destiny Erhabor — a chemistry
+   lecturer — competing for the same query; the role is what separates them. */
+const pageTitle = title === site.name ? `${site.name} — ${site.role}` : `${title} — ${site.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const origin = new URL(Astro.site!).origin;
 const ogImage = new URL('/og.png', Astro.site).href;
