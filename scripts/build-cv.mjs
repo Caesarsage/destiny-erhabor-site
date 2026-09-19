@@ -13,14 +13,22 @@ import { createServer } from 'node:http';
 import { spawn } from 'node:child_process';
 import { mkdir, copyFile, readFile, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { extname, join, resolve } from 'node:path';
+import { dirname, extname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const cvDir = join(root, 'cv');
 const fontDir = join(cvDir, 'fonts');
-const outPdf = join(root, 'public', 'destiny-erhabor-cv.pdf');
 const MAX_PAGES = 2;
+
+// `npm run cv` builds the public CV into public/, where the site links it.
+// `npm run cv -- docs` builds cv/cv-docs.html instead, into cv/out/ — variants
+// are aimed at one application each and have no business on the website.
+const variant = process.argv[2]?.replace(/[^a-z0-9-]/gi, '');
+const source = variant ? `cv-${variant}.html` : 'cv.html';
+const outPdf = variant
+  ? join(cvDir, 'out', `destiny-erhabor-cv-${variant}.pdf`)
+  : join(root, 'public', 'destiny-erhabor-cv.pdf');
 
 const FONTS = [
   ['@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2', 'newsreader-latin-wght-normal.woff2'],
@@ -55,7 +63,7 @@ function serve() {
   const server = createServer(async (req, res) => {
     const path = decodeURIComponent((req.url ?? '/').split('?')[0]);
     // Confine every request to cv/ regardless of what the URL asks for.
-    const file = resolve(join(cvDir, path === '/' ? 'cv.html' : path));
+    const file = resolve(join(cvDir, path === '/' ? source : path));
     if (!file.startsWith(cvDir)) {
       res.writeHead(403).end();
       return;
@@ -99,12 +107,16 @@ if (!browser) {
 }
 
 await stageFonts();
-await mkdir(join(root, 'public'), { recursive: true });
+if (!existsSync(join(cvDir, source))) {
+  console.error(`No such CV source: cv/${source}`);
+  process.exit(1);
+}
+await mkdir(dirname(outPdf), { recursive: true });
 const server = await serve();
 const { port } = server.address();
 
 try {
-  await render(browser, `http://127.0.0.1:${port}/cv.html`);
+  await render(browser, `http://127.0.0.1:${port}/${source}`);
 } finally {
   server.close();
   await rm(fontDir, { recursive: true, force: true });
@@ -112,7 +124,7 @@ try {
 
 const pages = await pageCount(outPdf);
 const size = (await readFile(outPdf)).length;
-console.log(`cv → public/destiny-erhabor-cv.pdf (${pages} pages, ${(size / 1024).toFixed(0)} kB)`);
+console.log(`${source} → ${outPdf.replace(root + '/', '')} (${pages} pages, ${(size / 1024).toFixed(0)} kB)`);
 
 if (pages > MAX_PAGES) {
   console.error(`\nToo long: ${pages} pages, limit is ${MAX_PAGES}. Trim cv/cv.html.`);

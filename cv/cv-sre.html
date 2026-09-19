@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Destiny Erhabor — CV, reliability</title>
+
+<!--
+  Reliability-led variant. `npm run cv -- sre` renders it to
+  cv/out/destiny-erhabor-cv-sre.pdf. Aimed at SRE and platform roles, so
+  production outcomes, incident response and infrastructure lead, and the
+  documentation work becomes evidence of upstream depth rather than the
+  headline.
+
+  Same facts as cv.html, reordered. Two A4 pages, enforced by the script.
+-->
+
+<link rel="stylesheet" href="cv.css">
+</head>
+
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <h1 class="name">Destiny Erhabor</h1>
+    <p class="role">Site Reliability &amp; Platform Engineer — Kubernetes contributor</p>
+    <div class="contact">
+      <span>Lagos, Nigeria</span>
+      <span><a href="mailto:hello@destinyerhabor.com">hello@destinyerhabor.com</a></span>
+      <span><a href="https://destinyerhabor.com">destinyerhabor.com</a></span>
+      <span><a href="https://github.com/Caesarsage">github.com/Caesarsage</a></span>
+    </div>
+  </header>
+
+  <p class="lede">
+    Platform and reliability engineer on systems where being wrong is expensive. <b>Moved a payment
+    gateway handling 500K+ daily transactions to Azure without losing one</b>, holding downtime
+    under 45 minutes, and <b>cut incident resolution from 4 hours to 20 minutes</b> by building the
+    observability stack the team had been operating without. Upstream Kubernetes contributor —
+    Documentation Lead for the v1.38 release. CNCF Ambassador.
+  </p>
+
+  <section class="sec">
+    <div class="sec-label">Reliability<em>production systems</em></div>
+    <div class="sec-body">
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>DevOps Engineer <span class="org">— Monieswitch (contract)</span></h3>
+          <span class="dates">Aug – Nov 2025</span>
+        </div>
+        <ul>
+          <li><b>Migrated a payment gateway handling 500K+ daily transactions to Azure with zero
+            transaction loss</b>, total downtime under 45 minutes — cutover planning, rollback
+            path, and reconciliation to prove nothing was dropped.</li>
+          <li><b>Cut mean time to resolution from 4 hours to 20 minutes</b> by building the
+            observability stack from nothing — Prometheus, Grafana, Loki and OpenTelemetry, with
+            alerting that pages on symptoms rather than causes.</li>
+          <li><b>Caught vulnerable dependencies and infrastructure drift before release</b> with
+            Trivy scanning and Terratest validation in the deployment pipeline.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Senior Backend &amp; Platform Engineer <span class="org">— Oris</span></h3>
+          <span class="dates">Aug 2023 – present</span>
+        </div>
+        <ul>
+          <li>Technical lead on a multi-tenant platform — <b>five product lines, 10,000+ users</b>,
+            TypeScript and Go — owning architecture from decision record through migration to
+            production cutover.</li>
+          <li><b>Ended payroll generation failures under concurrent load</b> by rebuilding the
+            write path on explicit transactions, replacing decorator-managed ones that silently
+            lost context across asynchronous job dispatch — a correctness bug that only appeared
+            under concurrency.</li>
+          <li><b>Made notification delivery reliable</b>: replaced best-effort in-request sends,
+            which dropped mail whenever a request failed, with a standalone Go service on SQS
+            giving <b>at-least-once delivery</b> — and a claim protocol that never blind-resends
+            to a recipient.</li>
+          <li><b>Retired the legacy employee data model with no downtime and no data freeze</b>,
+            moving every read path, projection and report before demoting job offers to
+            provenance-only.</li>
+          <li><b>Closed a cross-tenant data leak</b> and a privilege-escalation path; made tenant
+            scope a compile-time requirement platform-wide, and <b>removed standing cloud
+            credentials from CI</b> across five repositories in favour of OIDC.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Fullstack Engineer <span class="org">— NOVA Bank</span></h3>
+          <span class="dates">Feb – Aug 2025</span>
+        </div>
+        <ul>
+          <li>Built the ETL pipelines moving <b>500K+ customer records a day</b> out of the Finacle
+            core banking system into embedded analytics, and <b>cut dashboard load from 8 seconds
+            to under one</b> through caching and query tuning.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Upstream<em>Kubernetes · CNCF</em></div>
+    <div class="sec-body">
+      <article class="entry">
+        <ul>
+          <li><b>Documentation Lead, Kubernetes v1.38 release</b>, directing five shadows to a
+            fixed release-day deadline; docs shadow on v1.37 first. Release-team work is
+            coordination under a deadline that does not move.</li>
+          <li><b>Rebuilt kubernetes-sigs/reference-docs</b> — cut reference generation from hours
+            to minutes by detecting API groups, versions and kinds from the OpenAPI spec instead
+            of hand-maintained per-release configuration; removed 420 duplicate pages by fixing
+            cross-group version collisions.</li>
+          <li><b>Microcks CLI v2 (LFX Mentorship 2026)</b> — moved API contract testing out of CI
+            into the developer inner loop against an ephemeral container, with failure
+            classification that makes exit codes something CI can depend on.</li>
+          <li>Carried kubernetes.io across three major theme versions; reviews contributions
+            across the project — among SIG Docs' most active reviewers.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Skills</div>
+    <div class="sec-body">
+      <dl class="skills">
+        <div class="skill"><dt>Reliability</dt><dd>Incident response, root cause analysis, alerting and service-level monitoring, zero-downtime migration, capacity and load troubleshooting</dd></div>
+        <div class="skill"><dt>Observability</dt><dd>Prometheus, Grafana, Loki, OpenTelemetry, structured logging, alerting on symptoms</dd></div>
+        <div class="skill"><dt>Orchestration</dt><dd>Kubernetes, Docker, Helm, ArgoCD, Prow, GitHub Actions, OIDC federation</dd></div>
+        <div class="skill"><dt>Infrastructure</dt><dd>Terraform, Ansible, Terratest, Trivy, AWS (SQS, S3, KMS, IAM, ECR), Azure, Cloudflare</dd></div>
+        <div class="skill"><dt>Languages</dt><dd>Go, Python, Bash, TypeScript, SQL</dd></div>
+        <div class="skill"><dt>Data</dt><dd>MySQL, PostgreSQL, Redis, Kafka, Bull, Testcontainers</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Education</div>
+    <div class="sec-body">
+      <p class="compact"><b>B.Eng. Chemical Engineering</b>, University of Benin — CGPA 4.42/5.0.
+      NPDC/SEPLAT and Jim Ovia scholarships.</p>
+      <p class="compact"><b>Certifications</b> — AWS Solutions Architect Associate (SAA-C03) ·
+      Azure Administrator Associate (AZ-104) · Kubernetes and Cloud Native Associate (KCNA).</p>
+      <p class="compact"><b>Community</b> — CNCF Ambassador · AWS Community Builder · 24 published
+      tutorials on freeCodeCamp, 100K+ readers, largely on Kubernetes security, networking and
+      infrastructure.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

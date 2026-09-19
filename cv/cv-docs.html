@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Destiny Erhabor — CV, documentation</title>
+
+<!--
+  Docs-led variant. `npm run cv -- docs` renders it to
+  cv/out/destiny-erhabor-cv-docs.pdf. Aimed at technical writing and developer
+  education roles, so the Kubernetes documentation work and the published
+  writing lead, and the backend work becomes the credibility behind them.
+
+  Same facts as cv.html, reordered. Two A4 pages, enforced by the script.
+-->
+
+<link rel="stylesheet" href="cv.css">
+</head>
+
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <h1 class="name">Destiny Erhabor</h1>
+    <p class="role">Technical Writer &amp; Developer Educator — Kubernetes v1.38 Docs Lead</p>
+    <div class="contact">
+      <span>Lagos, Nigeria</span>
+      <span><a href="mailto:hello@destinyerhabor.com">hello@destinyerhabor.com</a></span>
+      <span><a href="https://destinyerhabor.com">destinyerhabor.com</a></span>
+      <span><a href="https://github.com/Caesarsage">github.com/Caesarsage</a></span>
+    </div>
+  </header>
+
+  <p class="lede">
+    Documentation Lead for the Kubernetes v1.38 release, directing five shadows. I write for
+    developers and I ship the engineering behind the writing — <b>the rebuild that cut
+    reference-documentation generation from hours to minutes</b>, and the fix for an API reference
+    that had been silently dropping enum values. <b>Twenty-four published tutorials on freeCodeCamp,
+    read by more than a hundred thousand people.</b> CNCF Ambassador and AWS Community Builder.
+  </p>
+
+  <section class="sec">
+    <div class="sec-label">Documentation<em>Kubernetes · 2025 – present</em></div>
+    <div class="sec-body">
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Release Team Documentation Lead <span class="tag">v1.38</span></h3>
+          <span class="dates">Sep 2026 – present</span>
+        </div>
+        <ul>
+          <li>Lead the documentation workstream for the release cycle (GA 16 Dec 2026),
+            <b>directing five shadows</b> across feature-blog coordination, reference regeneration
+            and the release-day docs freeze. Docs shadow on v1.37 first, stepping up to lead after
+            shipping the v1.36 and v1.37 reference sets end to end.</li>
+          <li><b>Shipped the complete reference documentation for two releases</b> — API, kubectl,
+            kubeadm, component and configuration — on the release-day deadline, in a project where
+            the deadline does not move.</li>
+          <li>Reviews contributions across the project for <b>technical accuracy and style-guide
+            conformance</b>, among SIG Docs' most active reviewers — the editorial standards role
+            at the scale of a project with thousands of contributors.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Information architecture &amp; platform <span class="org">— kubernetes/website</span></h3>
+          <span class="dates">2025 – present</span>
+        </div>
+        <ul>
+          <li><b>Reorganised Dynamic Resource Allocation into a Resource Management section</b>, so
+            readers find scheduling and device documentation in one place rather than three.</li>
+          <li><b>Brought dark mode to kubernetes.io</b>, leading the Docsy theme upgrade that had
+            blocked it and carrying the site across three major theme versions.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Docs tooling <span class="org">— kubernetes-sigs/reference-docs</span></h3>
+          <span class="dates">2026</span>
+        </div>
+        <ul>
+          <li><b>Cut reference generation for each release from hours to minutes</b>, removing the
+            hand-maintained per-release configuration that gated every build — API groups, versions
+            and kinds are now detected directly from the OpenAPI spec.</li>
+          <li><b>Caught and corrected a silent accuracy bug in the published API reference</b>: it
+            had been dropping enum values because the upstream spec omitted them. Found by
+            validating generated output against source, not by reading it.</li>
+          <li><b>Removed 420 duplicate and wrongly-grouped pages</b> by fixing cross-group version
+            collisions in resource bucketing.</li>
+          <li><b>Opened the reference to native Hugo rendering</b> — two generator backends that
+            coexist with production output under byte-identical guarantees, so no consumer had to
+            change.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Writing<em>2022 – present</em></div>
+    <div class="sec-body">
+      <article class="entry">
+        <ul>
+          <li><b>freeCodeCamp — 24 published tutorials, 100K+ readers.</b> Long-form, hands-on,
+            API- and infrastructure-heavy: zero-trust workload identity with SPIFFE, SPIRE and
+            Cilium; Kubernetes authentication with x509, OIDC and cloud identity; Kubernetes
+            networking; container runtimes; a production-grade distributed chatroom in Go.</li>
+          <li><b>LogRocket, Aviator and the Microsoft Educator Developer Blog</b> — Node.js
+            authentication, SOLID in TypeScript, CI/CD pipelines, integration testing, Azure App
+            Service, Databricks.</li>
+          <li><b>Developer education out loud</b> — guest on LogiCast AWS News (S5E14) as an AWS
+            Community Builder, university keynotes, and mentoring on Azure and DevSecOps
+            programmes at NexaScale.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">API tooling<em>Microcks · CNCF incubating</em></div>
+    <div class="sec-body">
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Mentee, LFX Mentorship 2026 <span class="org">— Microcks CLI v2</span></h3>
+          <span class="dates">Jun – Aug 2026</span>
+        </div>
+        <ul>
+          <li><b>Moved API contract testing into the developer inner loop.</b> Running one
+            previously cost a server, credentials and a specification import;
+            <code>microcks test --dry-run</code> runs it against an ephemeral container with none
+            of that. Mentored by the project's founder and maintainers.</li>
+          <li><b>Put contract failures on the pull request diff</b>, with annotations resolved to
+            the exact failing line of the OpenAPI specification — and shipped a VS Code extension,
+            deliberately CLI-first so it never handles credentials.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Engineering</div>
+    <div class="sec-body">
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Senior Backend &amp; Platform Engineer <span class="org">— Oris</span></h3>
+          <span class="dates">Aug 2023 – present</span>
+        </div>
+        <ul>
+          <li>Technical lead on a multi-tenant HR and payroll platform — <b>five product lines,
+            10,000+ users</b>, TypeScript and Go. The engineering depth behind the writing: I
+            document deployment and API surfaces because I build them.</li>
+          <li><b>Stopped employees being paid the wrong amount</b>, and ended payroll generation
+            failures under concurrent load by rebuilding the write path on explicit
+            transactions.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>DevOps Engineer <span class="org">— Monieswitch (contract)</span></h3>
+          <span class="dates">Aug – Nov 2025</span>
+        </div>
+        <ul>
+          <li><b>Moved a payment gateway handling 500K+ daily transactions to Azure without losing
+            a single transaction</b>, and cut incident resolution from 4 hours to 20 minutes by
+            building the observability stack the team had been operating without.</li>
+        </ul>
+      </article>
+
+      <p class="compact"><b>Earlier</b> — Fullstack Engineer at NOVA Bank (2025): gave 200+ branch
+      managers daily visibility into their own branch, cutting dashboard load from 8 seconds to
+      under one. Senior Software Engineer at ClubZella (2022 – 2023): led a team of 7 on a
+      creator-commerce marketplace.</p>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Tools</div>
+    <div class="sec-body">
+      <dl class="skills">
+        <div class="skill"><dt>Docs</dt><dd>Markdown, Git, Hugo/Docsy, OpenAPI, docs-as-code, style guides, information architecture, reference generation</dd></div>
+        <div class="skill"><dt>Validation</dt><dd>Microcks contract testing, curl and REST clients, Testcontainers, reproducing user workflows before publishing</dd></div>
+        <div class="skill"><dt>Code</dt><dd>Go, TypeScript, Python, Bash, SQL — code examples written and run, not transcribed</dd></div>
+        <div class="skill"><dt>Deployment</dt><dd>Kubernetes, Docker, Helm, ArgoCD, Terraform, AWS, Azure, GitHub Actions — including on-premises and air-gapped scenarios</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Community &amp; education</div>
+    <div class="sec-body">
+      <p class="compact"><b>CNCF Ambassador</b>. <b>AWS Community Builder</b>. Website lead for
+      Kubernetes activities at KubeCon NA 2026. <b>Microsoft Gold Ambassador</b> (2020 – 2023) —
+      co-founded the Power Platform Edo Bootcamp, training 2,000+ participants.</p>
+      <p class="compact"><b>B.Eng. Chemical Engineering</b>, University of Benin — CGPA 4.42/5.0 ·
+      AWS Solutions Architect Associate · Azure Administrator Associate · KCNA.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

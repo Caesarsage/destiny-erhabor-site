@@ -30,3 +30,6 @@ HANDOFF.md
 # staged by npm run og, then removed again
 og/fonts/
 og/portrait.png
+
+# application-specific CV variants, regenerable
+cv/out/
