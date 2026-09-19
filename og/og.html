@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>og</title>
+
+<!--
+  The social card. `npm run og` renders this to public/og.png at 1200x630,
+  which is what LinkedIn, X and Slack show when the site is shared.
+
+  Dark ground on purpose: it is the site's own default, and it separates from
+  the white of a feed better than the paper one does.
+-->
+
+<style>
+@font-face {
+  font-family: 'Newsreader';
+  src: url('fonts/newsreader-latin-wght-normal.woff2') format('woff2');
+  font-weight: 200 800;
+  font-display: block;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-display: block;
+}
+
+:root {
+  --bg: oklch(0.17 0.012 258);
+  --ink: oklch(0.93 0.008 90);
+  --muted: oklch(0.68 0.012 258);
+  --rule: oklch(0.30 0.014 258);
+  --accent2: oklch(0.76 0.12 72);
+  --chip: oklch(0.25 0.02 258);
+  --serif: 'Newsreader', Georgia, serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 64px;
+  align-items: center;
+  padding: 64px 68px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 17px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent2);
+}
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent2); }
+
+h1 {
+  margin-top: 26px;
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+}
+
+p {
+  margin-top: 22px;
+  max-width: 24ch;
+  font-size: 27px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
+.chip {
+  padding: 9px 15px;
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  background: var(--chip);
+  font-family: var(--mono);
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.domain {
+  position: absolute;
+  left: 68px;
+  bottom: 52px;
+  font-family: var(--mono);
+  font-size: 19px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.portrait {
+  width: 340px;
+  height: 425px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+}
+</style>
+</head>
+
+<body>
+  <div>
+    <div class="eyebrow"><span class="dot"></span>Kubernetes v1.38 Docs Lead</div>
+    <h1>Destiny Erhabor</h1>
+    <p>Cloud native systems, and the documentation that makes them usable.</p>
+    <div class="chips">
+      <span class="chip">CNCF Ambassador</span>
+      <span class="chip">AWS Community Builder</span>
+    </div>
+    <div class="domain">destinyerhabor.com</div>
+  </div>
+
+  <img class="portrait" src="portrait.png" alt="">
+</body>
+</html>

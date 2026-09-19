@@ -26,3 +26,7 @@ cv/fonts/
 
 # internal working notes, deliberately not published
 HANDOFF.md
+
+# staged by npm run og, then removed again
+og/fonts/
+og/portrait.png

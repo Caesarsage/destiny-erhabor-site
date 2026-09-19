@@ -41,6 +41,40 @@ export const socials = [
 
 export const mailto = `mailto:${site.email}`;
 
+/**
+ * Everywhere the same person can be found. Feeds `sameAs` in the Person
+ * structured data, which is how a search engine decides that these profiles
+ * and this site are one entity rather than several.
+ */
+export const sameAs = [
+  'https://github.com/Caesarsage',
+  'https://www.linkedin.com/in/destiny-erhabor',
+  'https://x.com/Caesar_Sage',
+  'https://www.freecodecamp.org/news/author/CaesarSage/',
+  'https://blog.logrocket.com/author/destinyerhabor/',
+  'https://www.aviator.co/blog/author/destinyerhabor/',
+  'https://builder.aws.com/community/@caesarsage',
+] as const;
+
+/** Subjects the site is actually about, for `knowsAbout`. */
+export const knowsAbout = [
+  'Software engineering',
+  'Kubernetes',
+  'Cloud native infrastructure',
+  'Platform engineering',
+  'DevOps/Cloud engineering',
+  'Technical documentation',
+  'Go',
+  'TypeScript',
+  'Contract testing',
+  'AWS',
+  'Azure',
+  'GCP',
+  'IBM',
+  'Multicloud',
+  'Zero-trust workload identity',
+] as const;
+
 /** The three pieces of work the home page leads with. */
 export const selectedWork = [
   {

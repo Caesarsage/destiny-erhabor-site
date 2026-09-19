@@ -5,9 +5,16 @@ import '@fontsource/ibm-plex-mono/500.css';
 import '../styles/tokens.css';
 import '../styles/site.css';
 
+// The two faces that draw the first screen. Preloading them starts the fetch
+// with the stylesheet rather than after it, so the headline stops arriving in
+// a fallback serif first. These must be the exact subsets the Fontsource CSS
+// asks for, or the browser warns about an unused preload.
+import newsreaderWoff2 from '@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2?url';
+import plexMonoWoff2 from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url';
+
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import { site } from '../data/site';
+import { knowsAbout, sameAs, site } from '../data/site';
 
 interface Props {
   title: string;
@@ -20,6 +27,42 @@ const { title, description, active } = Astro.props;
 
 const pageTitle = title === site.name ? site.name : `${title} — ${site.name}`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const origin = new URL(Astro.site!).origin;
+const ogImage = new URL('/og.png', Astro.site).href;
+
+/* One Person entity, shared across every page by its @id, so a search engine
+   reads the site and the profiles in sameAs as one person rather than several.
+   The WebSite node hangs off it for the site name. */
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${origin}/#person`,
+      name: site.name,
+      url: `${origin}/`,
+      image: ogImage,
+      jobTitle: 'Software and Platform Engineer',
+      email: `mailto:${site.email}`,
+      worksFor: { '@type': 'Organization', name: 'Oris' },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Lagos',
+        addressCountry: 'NG',
+      },
+      knowsAbout: [...knowsAbout],
+      sameAs: [...sameAs],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${origin}/#website`,
+      url: `${origin}/`,
+      name: site.name,
+      publisher: { '@id': `${origin}/#person` },
+      inLanguage: 'en',
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -32,12 +75,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <link rel="preload" as="font" type="font/woff2" href={newsreaderWoff2} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={plexMonoWoff2} crossorigin />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name} — ${site.role}`} />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@Caesar_Sage" />
+    <meta name="author" content={site.name} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
 
     {/* Stamps the stored choice before first paint. Without it a reader who
         picked light on a dark machine — or the reverse — sees the other
