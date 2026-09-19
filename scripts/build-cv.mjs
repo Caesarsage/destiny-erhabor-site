@@ -19,16 +19,24 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const cvDir = join(root, 'cv');
 const fontDir = join(cvDir, 'fonts');
-const MAX_PAGES = 2;
-
 // `npm run cv` builds the public CV into public/, where the site links it.
-// `npm run cv -- docs` builds cv/cv-docs.html instead, into cv/out/ — variants
+// Anything else builds into cv/out/, which is gitignored — variants and letters
 // are aimed at one application each and have no business on the website.
+//
+//   npm run cv                      cv/cv.html               -> public/
+//   npm run cv -- oss               cv/cv-oss.html           -> cv/out/
+//   npm run cv -- letter-riverlane  cv/letter-riverlane.html -> cv/out/
 const variant = process.argv[2]?.replace(/[^a-z0-9-]/gi, '');
-const source = variant ? `cv-${variant}.html` : 'cv.html';
-const outPdf = variant
-  ? join(cvDir, 'out', `destiny-erhabor-cv-${variant}.pdf`)
-  : join(root, 'public', 'destiny-erhabor-cv.pdf');
+const isLetter = Boolean(variant?.startsWith('letter-'));
+
+// A CV may run to two pages. A cover letter that runs to two is not a cover
+// letter, so the limit tightens rather than the page count growing.
+const MAX_PAGES = isLetter ? 1 : 2;
+
+const source = !variant ? 'cv.html' : isLetter ? `${variant}.html` : `cv-${variant}.html`;
+const outPdf = !variant
+  ? join(root, 'public', 'destiny-erhabor-cv.pdf')
+  : join(cvDir, 'out', `destiny-erhabor-${isLetter ? variant : `cv-${variant}`}.pdf`);
 
 const FONTS = [
   ['@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2', 'newsreader-latin-wght-normal.woff2'],
@@ -127,6 +135,6 @@ const size = (await readFile(outPdf)).length;
 console.log(`${source} → ${outPdf.replace(root + '/', '')} (${pages} pages, ${(size / 1024).toFixed(0)} kB)`);
 
 if (pages > MAX_PAGES) {
-  console.error(`\nToo long: ${pages} pages, limit is ${MAX_PAGES}. Trim cv/cv.html.`);
+  console.error(`\nToo long: ${pages} pages, limit is ${MAX_PAGES}. Trim cv/${source}.`);
   process.exit(1);
 }

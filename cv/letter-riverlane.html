@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Destiny Erhabor — letter to Riverlane</title>
+
+<!--
+  Cover letter for Riverlane, Software Engineer (Open Source).
+  `npm run cv -- letter-riverlane` renders it to
+  cv/out/destiny-erhabor-letter-riverlane.pdf.
+
+  One A4 page, enforced by the script — a two-page cover letter is not one.
+  Shares cv.css so the letter and the CV read as one set; the block below is
+  only the letter-specific layout, at a more generous size than the CV.
+-->
+
+<link rel="stylesheet" href="cv.css">
+<style>
+  body { font-size: 10.6pt; line-height: 1.55; }
+
+  .masthead { padding-bottom: 8pt; }
+
+  .meta-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16pt;
+    margin-top: 14pt;
+    font-family: var(--mono);
+    font-size: 8pt;
+    color: var(--faint);
+  }
+
+  .letter p { margin: 0 0 10pt; max-width: 82ch; }
+  .letter p:last-child { margin-bottom: 0; }
+
+  /* `.letter p` out-specifies a bare class, so scope the override. */
+  .letter .salutation { margin-top: 18pt; }
+
+  .signoff { margin-top: 18pt; }
+  .signoff .name-line {
+    font-size: 12pt;
+    color: var(--ink);
+  }
+</style>
+</head>
+
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <h1 class="name">Destiny Erhabor</h1>
+    <p class="role">Software Engineer — Open Source &amp; Developer Tooling</p>
+    <div class="contact">
+      <span>Lagos, Nigeria</span>
+      <span><a href="mailto:hello@destinyerhabor.com">hello@destinyerhabor.com</a></span>
+      <span><a href="https://destinyerhabor.com">destinyerhabor.com</a></span>
+      <span><a href="https://github.com/Caesarsage">github.com/Caesarsage</a></span>
+    </div>
+  </header>
+
+  <div class="meta-line">
+    <span>Riverlane · Cambridge · Software Engineer, Open Source</span>
+    <span>19 September 2026</span>
+  </div>
+
+  <div class="letter">
+    <p class="salutation">Dear Riverlane team,</p>
+
+    <p>I am applying for the Software Engineer (Open Source) role because Deltakit is the kind of
+    software I have spent the last two years building: an open-source, user-facing tool that a
+    small, highly technical community depends on, where the hard part is not the feature but
+    whether a researcher can pick it up and trust it.</p>
+
+    <p>Most of my open-source work has been exactly that translation problem. I spent an LFX
+    mentorship on Microcks CLI v2, a CNCF project, moving API contract testing out of CI and into
+    the developer inner loop — running a test used to cost a server, credentials and a
+    specification import, so teams found out about breakages a pull request too late. It now runs
+    against an ephemeral container in one command. I designed the output around how people actually
+    debug: failures resolve to the exact line of the specification that drifted, and exit codes are
+    classified so the scripts wrapping the CLI can act on them. Then I extended it into VS Code,
+    deliberately CLI-first so the editor never becomes a second control plane.</p>
+
+    <p>I do the same upstream in Kubernetes, where I am Documentation Lead for the v1.38 release,
+    directing five shadows to a release day that does not move. Before that I rebuilt the generator
+    behind the API reference every Kubernetes user reads — cutting generation from hours to minutes,
+    and catching a silent correctness bug where the reference had been dropping enum values because
+    the upstream spec omitted them. That work is mostly listening: reading what users report,
+    finding the real defect underneath it, and shipping something a maintainer will accept. I also
+    review other people's contributions, which is where most of the community work actually
+    happens.</p>
+
+    <p>On your requirements I should be straight about where I sit. Python is in my working set
+    alongside Go and TypeScript, though my deepest production work is in Go — I would expect to be
+    productive quickly rather than to arrive expert. I have no quantum background at all. What I
+    would point to instead is that I trained as a chemical engineer and taught myself distributed
+    systems well enough to become a CNCF Ambassador and contribute to Kubernetes upstream; learning
+    an unfamiliar technical domain from outside is the thing I have most practice at. That your work
+    reaches chemistry simulation is not lost on me.</p>
+
+    <p>I am based in Lagos and would need UK work authorisation. I am willing to relocate to
+    Cambridge, and would rather raise that now than after we have both spent time on it.</p>
+
+    <p>Thank you for reading.</p>
+
+    <div class="signoff">
+      <div class="name-line">Destiny Erhabor</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
