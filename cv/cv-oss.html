@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Destiny Erhabor — CV, open source</title>
+
+<!--
+  Open-source and developer-tooling variant. `npm run cv -- oss` renders it to
+  cv/out/destiny-erhabor-cv-oss.pdf. Aimed at roles building user-facing
+  open-source software for a technical community — Riverlane's Deltakit,
+  VillageSQL Cloud — so upstream contribution and the tools lead, and
+  employment becomes the engineering depth behind them.
+
+  For a Go-first reader (VillageSQL) swap the order of the Languages line.
+  Same facts as cv.html, reordered. Two A4 pages, enforced by the script.
+-->
+
+<link rel="stylesheet" href="cv.css">
+</head>
+
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <h1 class="name">Destiny Erhabor</h1>
+    <p class="role">Software Engineer — Open Source &amp; Developer Tooling</p>
+    <div class="contact">
+      <span>Lagos, Nigeria</span>
+      <span><a href="mailto:hello@destinyerhabor.com">hello@destinyerhabor.com</a></span>
+      <span><a href="https://destinyerhabor.com">destinyerhabor.com</a></span>
+      <span><a href="https://github.com/Caesarsage">github.com/Caesarsage</a></span>
+    </div>
+  </header>
+
+  <p class="lede">
+    I build open-source tools that a technical community depends on, and I stay close to the people
+    using them. <b>Documentation Lead for the Kubernetes v1.38 release</b>, directing five shadows
+    to a fixed deadline. <b>Rebuilt the generator behind the API reference every Kubernetes user
+    reads</b>, and spent an LFX mentorship turning a contract-testing CLI into something developers
+    run before they push. CNCF Ambassador.
+  </p>
+
+  <section class="sec">
+    <div class="sec-label">Developer tooling<em>open source</em></div>
+    <div class="sec-body">
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Microcks CLI v2 <span class="org">— LFX Mentorship, CNCF incubating</span></h3>
+          <span class="dates">Jun – Aug 2026</span>
+        </div>
+        <ul>
+          <li><b>Moved API contract testing out of CI and into the developer inner loop.</b> Running
+            one previously cost a server, credentials and a specification import, so teams learned
+            about breakages a pull request too late; <code>microcks test --dry-run</code> runs the
+            whole thing against an ephemeral container with none of that. Selected for the
+            mentorship and mentored by the project's founder and maintainers.</li>
+          <li><b>Designed the output around how people actually debug.</b> Machine-readable modes
+            emit annotations resolved to the exact failing line of the specification, so a reviewer
+            sees drift on the diff instead of hunting through folded CI logs. Failures are
+            classified — usage, connection, API, not-found, environment — so exit codes mean
+            something to the scripts wrapping them.</li>
+          <li><b>Extended it into the editor</b> with a VS Code extension: a services tree, dry-run
+            tests that drill to step-level failures, and an inspector comparing a mock against a
+            real service — deliberately CLI-first, so the editor never becomes a second control
+            plane and never handles credentials.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Reference generator <span class="org">— kubernetes-sigs/reference-docs</span></h3>
+          <span class="dates">2026</span>
+        </div>
+        <ul>
+          <li><b>Cut generation for each release from hours to minutes</b>, removing the
+            hand-maintained per-release configuration that gated every build — API groups, versions
+            and kinds are now derived directly from the OpenAPI spec.</li>
+          <li><b>Found and fixed a silent correctness bug</b> in the published API reference: it had
+            been dropping enum values because the upstream spec omitted them. Caught by validating
+            generated output against source, not by reading it.</li>
+          <li><b>Added a second generator backend</b> for native Hugo rendering, coexisting with the
+            production output under byte-identical guarantees, so no downstream consumer had to
+            change. <b>Removed 420 duplicate pages</b> by fixing cross-group version collisions.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Community<em>Kubernetes · CNCF</em></div>
+    <div class="sec-body">
+      <article class="entry">
+        <ul>
+          <li><b>Documentation Lead, Kubernetes v1.38</b> — lead the workstream for the release
+            cycle, directing five shadows across feature coordination, reference regeneration and
+            the release-day freeze. Shipped the complete reference sets for v1.36 and v1.37 on a
+            deadline that does not move.</li>
+          <li><b>Reviews contributions across the project</b> for technical accuracy and style
+            conformance — among SIG Docs' most active reviewers. Most of the work is helping other
+            people land their change.</li>
+          <li><b>CNCF Ambassador</b> and <b>AWS Community Builder</b>. Website lead for Kubernetes
+            activities at KubeCon NA 2026. Mentor and trainer at NexaScale.</li>
+          <li><b>24 published tutorials on freeCodeCamp, 100K+ readers</b> — zero-trust workload
+            identity with SPIFFE, SPIRE and Cilium; Kubernetes authentication and networking;
+            container runtimes; a distributed chatroom in Go. Explaining hard systems to people who
+            have to use them is the same instinct as building tools for them.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Engineering</div>
+    <div class="sec-body">
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3>Senior Backend &amp; Platform Engineer <span class="org">— Oris</span></h3>
+          <span class="dates">Aug 2023 – present</span>
+        </div>
+        <ul>
+          <li>Technical lead on a multi-tenant platform — <b>five product lines, 10,000+ users</b>,
+            TypeScript and Go — owning architecture from decision record to production cutover.</li>
+          <li><b>Ended generation failures under concurrent load</b> by rebuilding the write path on
+            explicit transactions, replacing decorator-managed ones that silently lost context
+            across asynchronous job dispatch — and <b>made notification delivery at-least-once</b>
+            with a standalone Go service on SQS.</li>
+          <li><b>Retired a legacy data model with no downtime and no data freeze</b>, moving every
+            read path, projection and report first.</li>
+        </ul>
+      </article>
+
+      <p class="compact"><b>Earlier</b> — DevOps Engineer at Monieswitch (2025): moved a payment
+      gateway handling 500K+ daily transactions to Azure with zero transaction loss, and cut
+      incident resolution from 4 hours to 20 minutes. Fullstack Engineer at NOVA Bank (2025):
+      pipelines moving 500K+ records a day, dashboard load from 8 seconds to under one. Senior
+      Software Engineer at ClubZella (2022 – 2023): led a team of 7.</p>
+
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Skills</div>
+    <div class="sec-body">
+      <dl class="skills">
+        <div class="skill"><dt>Languages</dt><dd>Python, Go, TypeScript, Bash, SQL</dd></div>
+        <div class="skill"><dt>Open source</dt><dd>Upstream contribution and review, release-team coordination, CLI and editor tooling, OpenAPI, code generation, semantic versioning, contributor documentation</dd></div>
+        <div class="skill"><dt>Engineering</dt><dd>Kubernetes, Docker, Terraform, Testcontainers, GitHub Actions, Prow, mutation testing, phased migration</dd></div>
+        <div class="skill"><dt>Working with</dt><dd>Maintainers, SIG working groups and first-time contributors; turning user reports into shipped changes</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-label">Education</div>
+    <div class="sec-body">
+      <p class="compact"><b>B.Eng. Chemical Engineering</b>, University of Benin — CGPA 4.42/5.0.
+      NPDC/SEPLAT and Jim Ovia scholarships. A quantitative degree, and a longer way round to a
+      terminal than most.</p>
+      <p class="compact"><b>Certifications</b> — AWS Solutions Architect Associate · Azure
+      Administrator Associate · Kubernetes and Cloud Native Associate.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
