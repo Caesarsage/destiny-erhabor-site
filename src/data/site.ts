@@ -8,7 +8,7 @@ export const site = {
   name: 'Destiny Erhabor',
   role: 'Cloud Native Software Engineer',
   location: 'Lagos, Nigeria',
-  email: 'destinyerhabor6@gmail.com',
+  email: 'hello@destinyerhabor.com',
 } as const;
 
 /**
