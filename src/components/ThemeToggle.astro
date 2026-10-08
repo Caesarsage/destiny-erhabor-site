@@ -48,17 +48,13 @@ import Icon from './Icon.astro';
 </style>
 
 <script>
-  // The stored choice is an override. With nothing stored the page follows the
-  // operating system, which is what tokens.css already does on its own — the
-  // inline script in <head> only stamps an explicit choice before first paint.
+  // The stored choice is an override. With nothing stored the page is light —
+  // the inline script in <head> only stamps an explicit choice before first paint.
   const root = document.documentElement;
   const button = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
-  const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 
   function current(): 'light' | 'dark' {
-    const explicit = root.dataset.theme;
-    if (explicit === 'light' || explicit === 'dark') return explicit;
-    return systemDark.matches ? 'dark' : 'light';
+    return root.dataset.theme === 'dark' ? 'dark' : 'light';
   }
 
   function relabel() {
@@ -84,6 +80,5 @@ import Icon from './Icon.astro';
     relabel();
   });
 
-  systemDark.addEventListener('change', relabel);
   relabel();
 </script>

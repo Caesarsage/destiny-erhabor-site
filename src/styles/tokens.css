@@ -1,6 +1,6 @@
 /* Design tokens. Ported verbatim from the design canvas theme sheet.
-   Three theme states: explicit light, explicit dark, and system default.
-   Light is defined on bare :root so nothing depends on a media query. */
+   Light is the default, defined on bare :root. Dark applies only when the
+   reader picks it, which stamps data-theme='dark' on the root. */
 
 :root {
   --bg: oklch(0.985 0.006 85);
@@ -23,21 +23,7 @@
   --measure: 70ch;
 }
 
-/* System default resolves to dark, unless the reader explicitly chose light. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --bg: oklch(0.17 0.012 258);
-    --panel: oklch(0.215 0.014 258);
-    --ink: oklch(0.93 0.008 90);
-    --muted: oklch(0.68 0.012 258);
-    --rule: oklch(0.30 0.014 258);
-    --accent: oklch(0.74 0.13 248);
-    --accent2: oklch(0.76 0.12 72);
-    --chip: oklch(0.25 0.02 258);
-  }
-}
-
-/* Explicit choice wins in both directions. */
+/* Dark only when the reader chooses it. The system preference is ignored. */
 :root[data-theme='dark'] {
   --bg: oklch(0.17 0.012 258);
   --panel: oklch(0.215 0.014 258);

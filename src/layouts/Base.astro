@@ -98,9 +98,8 @@ const structuredData = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
 
     {/* Stamps the stored choice before first paint. Without it a reader who
-        picked light on a dark machine — or the reverse — sees the other
-        theme flash first. With nothing stored the page follows the system,
-        which the stylesheet handles on its own. */}
+        picked dark sees light flash first. With nothing stored the page is
+        light, which the stylesheet handles on its own. */}
     <script is:inline>
       try {
         var stored = localStorage.getItem('theme');
@@ -108,7 +107,7 @@ const structuredData = {
           document.documentElement.dataset.theme = stored;
         }
       } catch (error) {
-        /* Private browsing. Fall back to the system preference. */
+        /* Private browsing. Fall back to light. */
       }
     </script>
   </head>
